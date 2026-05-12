@@ -5,10 +5,17 @@ date: 2026-05-12 09:40:00 +0800
 description: 从“复现-优化”路径的局限，谈问题意识如何在自己的项目体系中生长出来。
 tags: [research, methodology, problem-finding]
 categories: research-notes
+thumbnail: assets/img/posts/how-to-find-problems-cover.jpg
 related_posts: false
 ---
 
 这篇文章是 [愿景-理论-行动]({% post_url 2026-05-12-vision-theory-action %}) 中“行动”部分的展开。
+
+<div class="row mt-3">
+	<div class="col-sm-12">
+		{% include figure.liquid loading="eager" path="assets/img/posts/how-to-find-problems-cover.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+	</div>
+</div>
 
 很多人把“复现一篇论文，然后做优化”当成科研起点，但这往往不是一个好的方法。
 

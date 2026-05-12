@@ -5,12 +5,25 @@ date: 2026-05-12 09:20:00 +0800
 description: 先凑齐做成一件事所需的关键要素，再进入执行。
 tags: [research, methodology, execution]
 categories: research-notes
+thumbnail: assets/img/posts/rocket-principle-cover.jpg
 related_posts: false
 ---
 
 这篇文章是 [愿景-理论-行动]({% post_url 2026-05-12-vision-theory-action %}) 中“理论”部分的展开。
 
+<div class="row mt-3">
+	<div class="col-sm-12">
+		{% include figure.liquid loading="eager" path="assets/img/posts/rocket-principle-cover.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+	</div>
+</div>
+
 马斯克说，想做成一件事情，只要集齐这件事情要发生的所有要素就行了；即使造火箭，关键步骤也只有有限的若干项。反过来说，如果一件事情缺了关键要素，那么强行去做，结果往往只是浪费时间。
+
+<div class="row mt-3">
+	<div class="col-sm-12">
+		{% include figure.liquid loading="eager" path="assets/img/posts/rocket-principle-musk.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+	</div>
+</div>
 
 放到高质量论文写作里，可以把关键步骤拆成五个因素：
 
