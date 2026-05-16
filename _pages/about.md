@@ -2,30 +2,29 @@
 layout: about
 title: about
 permalink: /
-subtitle: FPGA | EDA | Hardware Security | Deep Reinforcement Learning
+subtitle: Assistant Professor, Tongji University
 
-profile:
-  align: right
-    image: prof_pic.jpg
-      image_circular: false
-        more_info:
+selected_papers: false
+social: true
 
-        selected_papers: true
-        social: true
+announcements:
+  enabled: false
 
-        announcements:
-          enabled: true
-            scrollable: true
-              limit: 5
+latest_posts:
+  enabled: false
+---
 
-              latest_posts:
-                enabled: false
-                  scrollable: true
-                    limit: 3
-                    ---
+I am Weixiong Jiang, an Assistant Professor in the College of Electronics and Information Engineering at Tongji University. My work focuses on AI processors, computer architecture, and software-hardware co-design for edge large language models.
 
-                    I am Weixiong Jiang. My research interests span FPGA acceleration, EDA (Electronic Design Automation), hardware security, and deep reinforcement learning for embedded systems.
+Before joining Tongji University in 2025, I worked in Huawei HiSilicon's Turing Architecture Department and NIO's autonomous driving chip team on GPU and NPU architecture, RTL design, and performance modeling.
 
-                    My work focuses on designing energy-efficient and high-performance FPGA-based accelerators for applications including CNN inference, point cloud registration, loop closure detection, and graph cut algorithms. I also explore DVFS (Dynamic Voltage and Frequency Scaling) techniques for energy optimization and reliability enhancement in FPGA and embedded platforms.
+I welcome motivated M.S. and Ph.D. students interested in AI processors and full-stack system design.
 
-                    In the EDA domain, I have contributed to formal verification of arithmetic circuits, including the RefSCAT series for logic-optimized multiplier verification. I am also interested in hardware security topics such as DVFS-based fault injection attacks on DNN accelerators.
+For details, please see my [CV](/cv/), [publications](/publications/), and [projects](/projects/).
+
+## Contact
+
+- Email: [jiangweixiong@tongji.edu.cn](mailto:jiangweixiong@tongji.edu.cn)
+- Lab Wiki: [OpenTPU Lab Wiki](https://tju-opentpu.feishu.cn/wiki/UmSNwezqTi0y6gkG8L0cEwl4n1f)
+- Xiaohongshu: 同济大学做AI芯片的姜伟雄
+

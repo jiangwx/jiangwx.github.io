@@ -285,6 +285,15 @@ ul.task-list input[type="checkbox"] {
 
   .navbar-brand {
     color: var(--global-text-color);
+
+    &.active {
+      font-weight: bolder;
+      color: var(--global-theme-color);
+    }
+
+    &:hover {
+      color: var(--global-hover-color);
+    }
   }
 
   .navbar-nav .nav-item .nav-link {
