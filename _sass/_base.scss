@@ -759,6 +759,8 @@ footer.fixed-bottom {
 
   a {
     color: var(--global-footer-link-color);
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
 
     &:hover {
       color: var(--global-theme-color);
@@ -994,11 +996,24 @@ footer.sticky-bottom {
   }
 
   h2.bibliography {
-    color: var(--global-divider-color);
+    color: var(--global-theme-color);
     border-top: 1px solid var(--global-divider-color);
     padding-top: 1rem;
     margin-top: 2rem;
     text-align: right;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 3.25rem;
+      height: 0.2rem;
+      margin-top: 0.35rem;
+      margin-left: auto;
+      border-radius: 999px;
+      background-color: var(--global-theme-color);
+    }
   }
 
   ol.bibliography {
@@ -1616,12 +1631,6 @@ ninja-keys::part(ninja-input-wrapper) {
   .arrow:before {
     border-bottom-color: var(--global-divider-color);
   }
-}
-
-// highlight-search-term
-::highlight(search) {
-  background-color: var(--global-theme-color);
-  color: var(--global-text-color);
 }
 
 figure.cover {

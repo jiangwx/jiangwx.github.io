@@ -1,6 +1,47 @@
 <!-- Metadata, OpenGraph and Schema.org -->
 {% include metadata.liquid %}
 
+<script>
+  (function () {
+    var storageKey = 'jiangwx-site-language';
+    var cookieKey = 'jiangwx-site-language';
+    var preferredLanguage = 'zh';
+
+    function readCookie(name) {
+      var cookiePrefix = name + '=';
+      var cookieParts = document.cookie ? document.cookie.split(';') : [];
+
+      for (var index = 0; index < cookieParts.length; index += 1) {
+        var cookie = cookieParts[index].trim();
+        if (cookie.indexOf(cookiePrefix) === 0) {
+          return cookie.substring(cookiePrefix.length);
+        }
+      }
+
+      return null;
+    }
+
+    try {
+      if (window.localStorage.getItem(storageKey) === 'en') {
+        preferredLanguage = 'en';
+      } else if (readCookie(cookieKey) === 'en') {
+        preferredLanguage = 'en';
+      }
+    } catch (error) {
+      preferredLanguage = readCookie(cookieKey) === 'en' ? 'en' : 'zh';
+    }
+
+    document.documentElement.setAttribute('lang', preferredLanguage === 'en' ? 'en' : 'zh-CN');
+    document.documentElement.setAttribute('data-language', preferredLanguage);
+  })();
+</script>
+<style>
+  html[data-language='zh'] [data-language-panel='en'],
+  html[data-language='en'] [data-language-panel='zh'] {
+    display: none !important;
+  }
+</style>
+
 <!-- Bootstrap & MDB -->
 <link rel="stylesheet" href="{{ '/assets/css/bootstrap.min.css' | relative_url | bust_file_cache }}">
 <link

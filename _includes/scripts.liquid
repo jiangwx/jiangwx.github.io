@@ -191,33 +191,50 @@
     }
 
     var storageKey = 'jiangwx-site-language';
+    var cookieKey = 'jiangwx-site-language';
+
+    function readCookie(name) {
+      var cookiePrefix = name + '=';
+      var cookieParts = document.cookie ? document.cookie.split(';') : [];
+
+      for (var index = 0; index < cookieParts.length; index += 1) {
+        var cookie = cookieParts[index].trim();
+        if (cookie.indexOf(cookiePrefix) === 0) {
+          return cookie.substring(cookiePrefix.length);
+        }
+      }
+
+      return null;
+    }
 
     function readLanguage() {
       try {
-        return window.localStorage.getItem(storageKey) === 'en' ? 'en' : 'zh';
+        if (window.localStorage.getItem(storageKey) === 'en') {
+          return 'en';
+        }
       } catch (error) {
-        return 'zh';
+        return readCookie(cookieKey) === 'en' ? 'en' : 'zh';
       }
+
+      return readCookie(cookieKey) === 'en' ? 'en' : 'zh';
     }
 
     function writeLanguage(language) {
       try {
         window.localStorage.setItem(storageKey, language);
       } catch (error) {
-        return;
       }
+
+      document.cookie = cookieKey + '=' + language + '; path=/; max-age=31536000; samesite=lax';
     }
 
     function applyLanguage(language) {
       var nextLanguage = language === 'en' ? 'en' : 'zh';
       document.documentElement.setAttribute('lang', nextLanguage === 'en' ? 'en' : 'zh-CN');
+      document.documentElement.setAttribute('data-language', nextLanguage);
 
       document.querySelectorAll('[data-language-root]').forEach(function (root) {
         root.setAttribute('data-language', nextLanguage);
-      });
-
-      document.querySelectorAll('[data-language-panel]').forEach(function (element) {
-        element.hidden = element.getAttribute('data-language-panel') !== nextLanguage;
       });
 
       toggleButtons.forEach(function (button) {

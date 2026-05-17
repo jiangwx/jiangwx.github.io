@@ -4,7 +4,7 @@
 
 {% if localized_zh or localized_en %}
   <span data-language-panel="zh">{{ localized_zh | default: localized_fallback }}</span>
-  <span data-language-panel="en" hidden>{{ localized_en | default: localized_fallback }}</span>
+  <span data-language-panel="en">{{ localized_en | default: localized_fallback }}</span>
 {% elsif localized_fallback %}
   {{ localized_fallback }}
 {% endif %}

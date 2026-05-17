@@ -26,7 +26,7 @@ latest_posts:
       <p class="homepage-summary">姜伟雄现任同济大学电子与信息工程学院助理教授。博士毕业后先后任职于华为海思图灵架构部与蔚来汽车自动驾驶芯片开发部，长期从事 GPU 与 NPU 的架构定义、方案设计、RTL 开发及性能建模。</p>
     </div>
 
-    <div class="homepage-hero-copy" data-language-panel="en" hidden>
+    <div class="homepage-hero-copy" data-language-panel="en">
       <p class="homepage-kicker">AI Processors and Software Stacks</p>
       <p class="homepage-lead">Focused on edge LLM processors, operator optimization, architecture exploration, and software-hardware co-design.</p>
       <p class="homepage-summary">Weixiong Jiang is an Assistant Professor at Tongji University. Before joining academia, he worked in Huawei HiSilicon's Turing Architecture Department and NIO's autonomous driving chip team on GPU/NPU architecture, solution design, RTL development, and performance modeling.</p>
@@ -39,7 +39,7 @@ latest_posts:
       <span class="homepage-chip">端侧 LPU 全栈研究</span>
     </div>
 
-    <div class="homepage-chip-row" data-language-panel="en" hidden>
+    <div class="homepage-chip-row" data-language-panel="en">
       <span class="homepage-chip">B.Eng., Harbin Institute of Technology, 2017</span>
       <span class="homepage-chip">Ph.D., UCAS, 2022</span>
       <span class="homepage-chip">Huawei HiSilicon and NIO chip experience</span>
@@ -52,7 +52,7 @@ latest_posts:
       <a class="homepage-action homepage-action-secondary" href="/projects/">项目</a>
     </div>
 
-    <div class="homepage-action-row" data-language-panel="en" hidden>
+    <div class="homepage-action-row" data-language-panel="en">
       <a class="homepage-action" href="/cv/">CV</a>
       <a class="homepage-action homepage-action-secondary" href="/publications/">Publications</a>
       <a class="homepage-action homepage-action-secondary" href="/projects/">Projects</a>
@@ -77,7 +77,7 @@ latest_posts:
     </section>
   </div>
 
-  <div class="homepage-section-grid" data-language-panel="en" hidden>
+  <div class="homepage-section-grid" data-language-panel="en">
     <section class="homepage-panel">
       <h2>Research</h2>
       <ul class="homepage-list">
@@ -113,7 +113,7 @@ latest_posts:
     </div>
   </section>
 
-  <section class="homepage-panel homepage-contact-panel" data-language-panel="en" hidden>
+  <section class="homepage-panel homepage-contact-panel" data-language-panel="en">
     <h2>Contact</h2>
     <div class="homepage-contact-grid">
       <a class="homepage-contact-item" href="mailto:jiangweixiong@tongji.edu.cn">

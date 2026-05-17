@@ -114,7 +114,7 @@
                   {%- endif %}
                   <a class="nav-link" href="{{ url | relative_url }}">
                     <span data-language-panel="zh">{{- nav_title_zh -}}</span>
-                    <span data-language-panel="en" hidden>{{- nav_title_en -}}</span>
+                    <span data-language-panel="en">{{- nav_title_en -}}</span>
                     {% if page.url contains p.url %}
                       <span class="sr-only">(current)</span>
                     {% endif %}

@@ -6,7 +6,7 @@ layout: default
     {% if page.language_toggle and page.name_zh and page.name_en %}
       <h1 class="post-title bilingual-title single-language-title">
         <span class="name-zh" data-language-panel="zh">{{ page.name_zh }}</span>
-        <span class="name-en" data-language-panel="en" hidden>{{ page.name_en }}</span>
+        <span class="name-en" data-language-panel="en">{{ page.name_en }}</span>
       </h1>
     {% elsif page.name_zh or page.name_en %}
       <h1 class="post-title bilingual-title">
@@ -30,7 +30,7 @@ layout: default
     {% if page.language_toggle and page.subtitle_zh and page.subtitle_en %}
       <p class="desc">
         <span data-language-panel="zh">{{ page.subtitle_zh }}</span>
-        <span data-language-panel="en" hidden>{{ page.subtitle_en }}</span>
+        <span data-language-panel="en">{{ page.subtitle_en }}</span>
       </p>
     {% else %}
       <p class="desc">{{ page.subtitle }}</p>
