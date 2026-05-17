@@ -1,8 +1,12 @@
 ---
 layout: page
 title: projects
+title_zh: 项目
+title_en: projects
 permalink: /projects/
 description: LPU project overview and technical notes.
+description_zh: LPU 项目概览与相关技术说明。
+description_en: LPU project overview and technical notes.
 nav: true
 nav_order: 3
 horizontal: false

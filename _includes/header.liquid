@@ -85,20 +85,25 @@
                 {% assign parent_link = p.permalink | remove: 'index.html' %}
                 {% assign nav_title_zh = p.title %}
                 {% assign nav_title_en = p.title %}
-                {% case p.permalink %}
-                  {% when '/cv/' %}
-                    {% assign nav_title_zh = '个人简历' %}
-                    {% assign nav_title_en = 'cv' %}
-                  {% when '/publications/' %}
-                    {% assign nav_title_zh = '论文' %}
-                    {% assign nav_title_en = 'publications' %}
-                  {% when '/projects/' %}
-                    {% assign nav_title_zh = '项目' %}
-                    {% assign nav_title_en = 'projects' %}
-                  {% when '/repositories/' %}
-                    {% assign nav_title_zh = '代码' %}
-                    {% assign nav_title_en = 'repositories' %}
-                {% endcase %}
+                {% if p.permalink contains '/blog/' %}
+                  {% assign nav_title_zh = '博客' %}
+                  {% assign nav_title_en = 'blog' %}
+                {% else %}
+                  {% case p.permalink %}
+                    {% when '/cv/' %}
+                      {% assign nav_title_zh = '个人简历' %}
+                      {% assign nav_title_en = 'cv' %}
+                    {% when '/publications/' %}
+                      {% assign nav_title_zh = '论文' %}
+                      {% assign nav_title_en = 'publications' %}
+                    {% when '/projects/' %}
+                      {% assign nav_title_zh = '项目' %}
+                      {% assign nav_title_en = 'projects' %}
+                    {% when '/repositories/' %}
+                      {% assign nav_title_zh = '代码' %}
+                      {% assign nav_title_en = 'repositories' %}
+                  {% endcase %}
+                {% endif %}
                 <li class="nav-item {% if page.url contains parent_link %}active{% endif %}">
                   {%- if p.permalink contains '://' -%}
                     {%- assign url = p.permalink -%}

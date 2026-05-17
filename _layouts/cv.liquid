@@ -5,7 +5,7 @@ layout: default
   <div class="post">
     <header class="post-header">
       <h1 class="post-title">
-        {{ page.title }}
+        {% include localized_text.liquid zh=page.title_zh en=page.title_en fallback=page.title %}
         {% if page.cv_pdf %}
           <a
             {% if page.cv_pdf contains '://' %}
@@ -21,36 +21,19 @@ layout: default
           </a>
         {% endif %}
       </h1>
-      {% if page.description %}
-        <p class="post-description">{{ page.description }}</p>
+      {% if page.description or page.description_zh or page.description_en %}
+        <p class="post-description">
+          {% include localized_text.liquid zh=page.description_zh en=page.description_en fallback=page.description %}
+        </p>
       {% endif %}
     </header>
 
     <article>
-      <div class="cv">
-        {% for entry in site.data.cv %}
-          <a class="anchor" id="{{ entry.title }}"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ entry.title }}</h3>
-            <div>
-              {% if entry.type == 'list' %}
-                {% include cv/list.liquid %}
-              {% elsif entry.type == 'map' %}
-                {% include cv/map.liquid %}
-              {% elsif entry.type == 'profile' %}
-                {% include cv/profile.liquid %}
-              {% elsif entry.type == 'nested_list' %}
-                {% include cv/nested_list.liquid %}
-              {% elsif entry.type == 'time_table' %}
-                {% include cv/time_table.liquid %}
-              {% elsif entry.type == 'list_groups' %}
-                {% include cv/list_groups.liquid %}
-              {% else %}
-                {{ entry.contents }}
-              {% endif %}
-            </div>
-          </div>
-        {% endfor %}
+      <div class="cv" data-language-panel="zh">
+        {% include cv/sections.liquid entries=site.data.cv %}
+      </div>
+      <div class="cv" data-language-panel="en" hidden>
+        {% include cv/sections.liquid entries=site.data.cv_en %}
       </div>
     </article>
   </div>

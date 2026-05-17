@@ -1,0 +1,10 @@
+{% assign localized_zh = include.zh %}
+{% assign localized_en = include.en %}
+{% assign localized_fallback = include.fallback %}
+
+{% if localized_zh or localized_en %}
+  <span data-language-panel="zh">{{ localized_zh | default: localized_fallback }}</span>
+  <span data-language-panel="en" hidden>{{ localized_en | default: localized_fallback }}</span>
+{% elsif localized_fallback %}
+  {{ localized_fallback }}
+{% endif %}

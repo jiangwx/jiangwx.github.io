@@ -1,0 +1,150 @@
+- title: Profile
+  type: profile
+  image: prof_pic_jiang.png
+  name: Weixiong Jiang
+  subtitle: Assistant Professor, College of Electronics and Information Engineering, Tongji University
+  summary:
+    - Weixiong Jiang is an Assistant Professor at the College of Electronics and Information Engineering, Tongji University. He received his B.Eng. in Electromagnetic Field and Wireless Technology from Harbin Institute of Technology in 2017 and his Ph.D. in Microelectronics and Solid State Electronics from the University of Chinese Academy of Sciences in 2022.
+    - After completing his doctorate, he worked in Huawei HiSilicon's Turing Architecture Department and NIO's autonomous driving chip division, focusing on GPU and NPU architecture definition, key module analysis, solution design, RTL development, and performance modeling across the major front-end roles of digital chip design.
+    - Over the past five years, he has published more than ten papers in leading integrated-circuit journals and conferences such as TCAD, TCAS-I, TCAS-II, TVLSI, and DAC, including six papers as first or corresponding author, and holds two granted international patents.
+  highlights:
+    - AI processors and software stacks
+    - Edge large language model processors
+    - Architecture exploration and software-hardware co-design
+
+- title: Basic Information
+  type: map
+  contents:
+    - name: Name
+      value: Weixiong Jiang
+    - name: Title
+      value: Assistant Professor
+    - name: Discipline
+      value: Electronic Science and Technology
+    - name: Major
+      value: Microelectronics
+    - name: Research Area
+      value: AI processor and software stack design
+    - name: Email
+      value: jiangweixiong@tongji.edu.cn
+    - name: Phone
+      value: 17612153732
+    - name: Lab Website
+      links:
+        - name: Visit
+          link: https://tju-opentpu.feishu.cn/wiki/UmSNwezqTi0y6gkG8L0cEwl4n1f
+    - name: Homepage
+      links:
+        - name: Visit
+          link: https://jiangwx.github.io
+    - name: Xiaohongshu
+      value: 同济大学做AI芯片的姜伟雄
+
+- title: Education
+  type: time_table
+  contents:
+    - title: Ph.D. in Microelectronics and Solid State Electronics, University of Chinese Academy of Sciences
+      year: 2022
+    - title: B.Eng. in Electromagnetic Field and Wireless Technology, Harbin Institute of Technology
+      year: 2017
+
+- title: Professional Experience
+  type: time_table
+  contents:
+    - title: Assistant Professor, College of Electronics and Information Engineering, Tongji University
+      year: 2025-present
+      description:
+        - Joined Tongji University in July 2025.
+        - Conducts teaching and research on AI processors and software stacks.
+    - title: Huawei HiSilicon Turing Architecture Department and NIO Autonomous Driving Chip Division
+      year: 2022-2025
+      description:
+        - Worked on GPU and NPU architecture definition, key module analysis, solution design, RTL development, and performance modeling.
+        - Built systematic industry experience across architecture, modeling, and design in digital chip front-end development.
+
+- title: Research Directions
+  type: nested_list
+  contents:
+    - title: End-to-end design of edge large language model processors (LPU)
+      items:
+        - Inference framework design
+        - Operator design and optimization
+        - Architecture design and exploration
+        - Microarchitecture design and optimization
+        - Software-hardware co-design
+
+- title: Mentoring Philosophy
+  type: nested_list
+  contents:
+    - title: Methodology first, with theory and practice reinforcing each other
+      items:
+        - Students first learn a general methodology that spans coding, paper writing, and technical proposal design, then internalize it through daily research work.
+    - title: Industry-oriented training with full-stack capability
+      items:
+        - Research training covers the full LPU stack, including inference frameworks, operator design and optimization, architecture exploration, microarchitecture optimization, and software-hardware co-design.
+        - Foundational skills include Verilog, C++, and UVM verification; higher-level skills emphasize abstraction, deduction, systems thinking, and structured communication.
+    - title: Organized research with shared infrastructure
+      items:
+        - The group develops research around a shared LPU full-stack platform, with students jointly maintaining the platform and deeply optimizing key modules.
+    - title: Progressive and personalized training
+      items:
+        - Debugging or UVM verification -> independent C++ or Verilog development -> small-module proposal writing -> medium-module proposal writing -> large-module proposal writing -> leadership of another core module.
+
+- title: Communication Mechanism
+  type: list
+  contents:
+    - A full group meeting is held every week to align progress.
+    - Additional technical meetings are organized as needed for proposal walkthroughs, design discussions, and code reviews.
+    - One-on-one discussions are maintained to resolve issues in a timely manner.
+
+- title: Internships and Career Development
+  type: nested_list
+  contents:
+    - title: Career support
+      items:
+        - Includes resume revision and mock interviews.
+        - Outstanding students may receive referrals to core teams in major companies.
+    - title: Internship arrangement
+      items:
+        - The group maintains internship partnerships with two major chip companies, and strong students can be directly referred.
+        - In principle, students are not encouraged to take outside internships before meeting graduation requirements; after those requirements are met, internship participation is fully supported.
+
+- title: Honors and Awards
+  type: time_table
+  contents:
+    - year: 2021
+      items:
+        - DAC-SDC'21 Champion (top accelerator competition in neural-network hardware; 116 teams worldwide; ranked first on every metric)
+        - First Prize, Integrated Circuit Scholarship of the Chinese Institute of Electronics
+    - year: 2020
+      items:
+        - DAC-SDC'20 Runner-up
+
+- title: Selected Publications
+  type: time_table
+  contents:
+    - year: 2025
+      items:
+        - "Rui Li, Lin Li, Heng Yu, Masahiro Fujita, Weixiong Jiang*, Yajun Ha*: RefSCAT-2.0: Formal Verification of Large-Scale Optimized Multipliers via Quantum-Inspired Ant Colony Optimization-Based Reference Generation. IEEE TCAD, 2025."
+        - "Qi Deng, Hao Sun, Yuhao Shu, Jianzhong Xiao, Weixiong Jiang, Hui Wang, Yajun Ha: An Energy-Efficient and Real-Time FPGA-Based Point Cloud Registration Framework with Ultra-Fast and Configurable Multi-Mode Correspondence Search. ACM TRETS, 2025."
+        - "Shijie Meng, Qi Deng, Weixiong Jiang, Jinjie Huang, Hao Sun, Yajun Ha: An FPGA-Based Real-Time Loop Closure Detection Framework With Ultra-Fast Descriptor Generator. IEEE TCAS-I, 2025."
+        - "Shen Zhang, Bin Ning, Guangyao Yan, Xinzhe Liu, Weixiong Jiang, Yajun Ha: QuantTPM: Efficient Mixed-Precision Quantization Framework for Tractable Probabilistic Models. IEEE TCAD, 2025."
+        - "Junge Xu, Fan Zhang, Wenguang Jin, Kun Yang, Zeke Wang, Weixiong Jiang, Yajun Ha: A Deep Investigation on Stealthy DVFS Fault Injection Attacks at DNN Hardware Accelerators. IEEE TCAD, 2025."
+        - "Jingjin Li, Weixiong Jiang, Yuting He, Qingyu Yang, Anqi Gao, Yajun Ha, Ender Özcan, Ruibin Bai, Tianxiang Cui, Heng Yu: FiDRL: Flexible Invocation-Based Deep Reinforcement Learning for DVFS Scheduling in Embedded Systems. IEEE Transactions on Computers, 2025."
+    - year: 2023
+      items:
+        - "Weixiong Jiang, Heng Yu, Yajun Ha: A High-Throughput Full-Dataflow MobileNetv2 Accelerator on Edge FPGA. IEEE TCAD, 2023."
+        - "Weixiong Jiang, Heng Yu, Fupeng Chen, Yajun Ha: AOS: An Automated Overclocking System for High-Performance CNN Accelerator Through Timing Delay Measurement on FPGA. IEEE TCAD, 2023."
+    - year: 2022
+      items:
+        - "Weixiong Jiang, Heng Yu, Hongtu Zhang, Yuhao Shu, Rui Li, Jian Chen, Yajun Ha: FODM: A Framework for Accurate Online Delay Measurement Supporting All Timing Paths in FPGA. IEEE TVLSI, 2022."
+        - "Fupeng Chen, Heng Yu, Weixiong Jiang, Yajun Ha: Quality Optimization of Adaptive Applications via Deep Reinforcement Learning in Energy Harvesting Edge Devices. IEEE TCAD, 2022."
+        - "Jian Chen, Wenfeng Zhao, Yuqi Wang, Yuhao Shu, Weixiong Jiang, Yajun Ha: A Reliable 8T SRAM for High-Speed Searching and Logic-in-Memory Operations. IEEE TVLSI, 2022."
+    - year: 2021
+      items:
+        - "Weixiong Jiang, Heng Yu, Xinzhe Liu, Hao Sun, Rui Li, Yajun Ha: TAIT: One-Shot Full-Integer Lightweight DNN Quantization via Tunable Activation Imbalance Transfer. DAC, 2021."
+        - "Hongtu Zhang, Yuhao Shu, Weixiong Jiang, Zihan Yin, Wenfeng Zhao, Yajun Ha: A 55nm, 0.4V 5526-TOPS/W Compute-in-Memory Binarized CNN Accelerator for AIoT Applications. IEEE TCAS-II, 2021."
+    - year: 2020
+      items:
+        - "Weixiong Jiang, Rui Li, Heng Yu, Yajun Ha: An Accurate FPGA Online Delay Monitor Supporting All Timing Paths. ISCAS, 2020."
+        - "Hao Sun, Xinzhe Liu, Qi Deng, Weixiong Jiang, Shaobo Luo, Yajun Ha: Efficient FPGA Implementation of K-Nearest-Neighbor Search Algorithm for 3D LIDAR Localization and Mapping in Smart Vehicles. IEEE TCAS-II, 2020."

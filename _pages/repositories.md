@@ -2,7 +2,11 @@
 layout: page
 permalink: /repositories/
 title: repositories
+title_zh: 代码
+title_en: repositories
 description: GitHub profile and selected repositories.
+description_zh: GitHub 主页与精选代码仓库。
+description_en: GitHub profile and selected repositories.
 nav: true
 nav_order: 4
 ---
