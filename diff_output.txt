@@ -1,0 +1,1038 @@
+﻿diff --git a/_config.local-preview.yml b/_config.local-preview.yml
+new file mode 100644
+index 0000000..2a7992d
+--- /dev/null
++++ b/_config.local-preview.yml
+@@ -0,0 +1,23 @@
++external_sources: []
++imagemagick:
++  enabled: false
++exclude:
++  - bin/
++  - CONTRIBUTING.md
++  - CUSTOMIZE.md
++  - Dockerfile
++  - docker-compose.yml
++  - docker-compose-slim.yml
++  - FAQ.md
++  - Gemfile
++  - Gemfile.lock
++  - INSTALL.md
++  - LICENSE
++  - lighthouse_results/
++  - package.json
++  - package-lock.json
++  - purgecss.config.js
++  - README.md
++  - readme_preview/
++  - vendor
++  - assets/jupyter/blog.ipynb
+\ No newline at end of file
+diff --git a/_config.yml b/_config.yml
+index 2e81744..8fb85fc 100644
+--- a/_config.yml
++++ b/_config.yml
+@@ -2,19 +2,18 @@
+ # Site settings
+ # -----------------------------------------------------------------------------
+ 
+-title: blank # the website title (if blank, full name will be used instead)
++title: Weixiong Jiang
+ first_name: Weixiong
+ middle_name: 
+ last_name: Jiang
+ contact_note: >
+-  Feel free to reach out to me.
++  For Ph.D. and M.S. opportunities, please reach out by email.
+ description: > # the ">" symbol means to ignore newlines until "footer_text:"
+-  Personal website of Weixiong Jiang.
++  Assistant Professor at Tongji University working on AI processors and software stack design.
+ footer_text: >
+   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
+   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+-  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
+-keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty
++keywords: ai processor, computer architecture, lpu, npu, software-hardware co-design, tongji university
+ lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
+ icon: 鈿涳笍 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+ 
+@@ -51,7 +50,6 @@ footer_fixed: true
+ search_enabled: true
+ socials_in_search: true
+ posts_in_search: true
+-bib_search: true
+ 
+ # Dimensions
+ max_width: 930px
+@@ -86,8 +84,8 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
+ # Blog
+ # -----------------------------------------------------------------------------
+ 
+-blog_name: Weixiong's Blog # blog_name will be displayed in your blog page
+-blog_description: Personal blog and portfolio
++blog_name: blog
++blog_description: Notes on AI processors, methodology, and mentorship
+ permalink: /blog/:year/:title/
+ lsi: false # produce an index for related posts
+ 
+@@ -116,19 +114,13 @@ giscus:
+   lang: en
+ 
+ # Disqus comments (DEPRECATED)
+-disqus_shortname: al-folio # put your disqus shortname
++disqus_shortname:
+ # https://help.disqus.com/en/articles/1717111-what-s-a-shortname
+ 
+ # External sources.
+ # If you have blog posts published on medium.com or other external sources,
+ # you can display them in your blog by adding a link to the RSS feed.
+-external_sources:
+-  - name: medium.com
+-    rss_url: https://medium.com/@al-folio/feed
+-  - name: Google Blog
+-    posts:
+-      - url: https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/
+-        published_date: 2024-05-14
++external_sources: []
+ 
+ # -----------------------------------------------------------------------------
+ # Newsletter
+@@ -144,12 +136,6 @@ newsletter:
+ # -----------------------------------------------------------------------------
+ 
+ collections:
+-  books:
+-    output: true
+-  news:
+-    defaults:
+-      layout: post
+-    output: true
+   projects:
+     output: true
+ 
+@@ -187,7 +173,6 @@ exclude:
+   - lighthouse_results/
+   - package.json
+   - package-lock.json
+-  - _pages/about_einstein.md
+   - purgecss.config.js
+   - README.md
+   - readme_preview/
+@@ -253,19 +238,17 @@ jekyll-archives:
+       year: "/blog/:year/"
+       tags: "/blog/:type/:name/"
+       categories: "/blog/:type/:name/"
+-  books:
+-    enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
+ 
+-display_tags: ["formatting", "images", "links", "math", "code", "blockquotes"] # these tags will be displayed on the front page of your blog
+-display_categories: ["external-services"] # these categories will be displayed on the front page of your blog
++display_tags: ["绉戠爺鎴愰暱", "闂鎰忚瘑", "绉戠爺璁粌", "缁撴瀯鍖栬〃杈?, "鎵ц鏂规硶"]
++display_categories: ["鏂规硶璁?]
+ 
+ # -----------------------------------------------------------------------------
+ # Jekyll Scholar
+ # -----------------------------------------------------------------------------
+ 
+ scholar:
+-  last_name: [Einstein]
+-  first_name: [Albert, A.]
++  last_name: [Jiang]
++  first_name: [Weixiong, W.]
+ 
+   style: apa
+   locale: en
+diff --git a/_data/cv.yml b/_data/cv.yml
+index 5885b30..8a8b515 100644
+--- a/_data/cv.yml
++++ b/_data/cv.yml
+@@ -1,97 +1,150 @@
+-- title: General Information
++- title: 涓汉绠€浠?+  type: profile
++  image: prof_pic_jiang.png
++  name: 濮滀紵闆?+  subtitle: 鍚屾祹澶у鐢靛瓙涓庝俊鎭伐绋嬪闄㈠姪鐞嗘暀鎺?+  summary:
++    - 濮滀紵闆勶紝鍚屾祹澶у鐢靛瓙涓庝俊鎭伐绋嬪闄㈠姪鐞嗘暀鎺堛€?017 骞磋幏鍝堝皵婊ㄥ伐涓氬ぇ瀛︾數纾佸満涓庢棤绾挎妧鏈笓涓氬澹浣嶏紝2022 骞磋幏涓浗绉戝闄㈠ぇ瀛﹀井鐢靛瓙瀛︿笌鍥轰綋鐢靛瓙瀛︿笓涓氬崥澹浣嶃€?+    - 鍗氬＋姣曚笟鍚庡厛鍚庝换鑱屼簬鍗庝负娴锋€濆浘鐏垫灦鏋勯儴涓庤敋鏉ユ苯杞﹁嚜鍔ㄩ┚椹惰姱鐗囧紑鍙戦儴锛屼粠浜?GPU 涓?NPU 鐨勬灦鏋勫畾涔夈€佸叧閿ā鍧楄璇併€佹柟妗堣璁°€丷TL 寮€鍙戝強鎬ц兘寤烘ā绛夊伐浣滐紝绯荤粺瑕嗙洊鏁板瓧鑺墖鍓嶇鏍稿績宀椾綅涓殑鏋舵瀯銆佸缓妯′笌璁捐涓夊ぇ鏂瑰悜銆?+    - 杩戜簲骞存潵鍦?TCAD銆乀CAS-I銆乀CAS-II銆乀VLSI銆丏AC 绛夐泦鎴愮數璺鍩熼珮姘村钩鏈熷垔涓庝細璁笂鍙戣〃璁烘枃鍗佷綑绡囷紝鍏朵腑浠ョ涓€浣滆€呮垨閫氳浣滆€呭彂琛?6 绡囷紝鎷ユ湁鍥介檯鎺堟潈涓撳埄 2 椤广€?+  highlights:
++    - AI 澶勭悊鍣ㄥ強杞欢鏍堣璁?+    - 绔晶澶ц瑷€妯″瀷澶勭悊鍣?+    - 鏋舵瀯鎺㈢储涓庤蒋纭欢鍗忓悓璁捐
++
++- title: 鍩烘湰淇℃伅
+   type: map
+   contents:
+-    - name: Full Name
+-      value: Albert Einstein
+-    - name: Date of Birth
+-      value: 14th March 1879
+-    - name: Languages
+-      value: English, German
++    - name: 濮撳悕
++      value: 濮滀紵闆?+    - name: 鑱岀О
++      value: 鍔╃悊鏁欐巿
++    - name: 瀛︾
++      value: 鐢靛瓙绉戝涓庢妧鏈?+    - name: 涓撲笟
++      value: 寰數瀛?+    - name: 鐮旂┒鏂瑰悜
++      value: AI 澶勭悊鍣ㄥ強杞欢鏍堣璁?+    - name: 鐢靛瓙閭欢
++      value: jiangweixiong@tongji.edu.cn
++    - name: 鑱旂郴鐢佃瘽
++      value: 17612153732
++    - name: 璇鹃缁勪富椤?+      links:
++        - name: 璁块棶
++          link: https://tju-opentpu.feishu.cn/wiki/UmSNwezqTi0y6gkG8L0cEwl4n1f
++    - name: 涓汉涓婚〉
++      links:
++        - name: 璁块棶
++          link: https://jiangwx.github.io
++    - name: 灏忕孩涔?+      value: 鍚屾祹澶у鍋欰I鑺墖鐨勫浼熼泟
+ 
+-- title: Education
++- title: 鏁欒偛缁忓巻
+   type: time_table
+   contents:
+-    - title: PhD
+-      institution: University of Zurich, Zurich, Switzerland
+-      year: 1905
+-      description:
+-        - Description 1.
+-        - Description 2.
+-        - title: Description 3.
+-          contents:
+-            - Sub-description 1.
+-            - Sub-description 2.
+-    - title: Federal teaching diploma
+-      institution: Eidgen枚ssische Technische Hochschule, Zurich, Switzerland
+-      year: 1900
+-      description:
+-        - Description 1.
+-        - Description 2.
++    - title: 涓浗绉戝闄㈠ぇ瀛︼紝寰數瀛愬涓庡浐浣撶數瀛愬锛屽崥澹?+      year: 2022
++    - title: 鍝堝皵婊ㄥ伐涓氬ぇ瀛︼紝鐢电鍦轰笌鏃犵嚎鎶€鏈紝瀛﹀＋
++      year: 2017
+ 
+-- title: Experience
++- title: 宸ヤ綔缁忓巻
+   type: time_table
+   contents:
+-    - title: Professor of Theoretical Physics
+-      institution: Institute for Advanced Study, Princeton University
+-      year: 1933 - 1955
++    - title: 鍚屾祹澶у鐢靛瓙涓庝俊鎭伐绋嬪闄紝鍔╃悊鏁欐巿
++      year: 2025-鑷充粖
+       description:
+-        - Description 1.
+-        - Description 2.
+-        - title: Description 3.
+-          contents:
+-            - Sub-description 1.
+-            - Sub-description 2.
+-    - title: Visiting Professor
+-      institution: California Institute of Technology, Pasadena, California, US
+-      year: 1933
++        - 2025 骞?7 鏈堝姞鍏ュ悓娴庡ぇ瀛︺€?+        - 鍥寸粫 AI 澶勭悊鍣ㄥ強杞欢鏍堣璁″紑灞曟暀瀛︿笌绉戠爺宸ヤ綔銆?+    - title: 鍗庝负娴锋€濆浘鐏垫灦鏋勯儴銆佽敋鏉ユ苯杞﹁嚜鍔ㄩ┚椹惰姱鐗囧紑鍙戦儴
++      year: 2022-2025
+       description:
+-        - Description 1.
+-        - Description 2.
+-
+-    - title: Director
+-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
+-      year: 1917-1933
++        - 浠庝簨 GPU 涓?NPU 鐨勬灦鏋勫畾涔夈€佸叧閿ā鍧楄璇併€佹柟妗堣璁°€丷TL 寮€鍙戝強鎬ц兘寤烘ā銆?+        - 鍦ㄤ骇涓氱幆澧冧腑绯荤粺绉疮浜嗘暟瀛楄姱鐗囧墠绔湪鏋舵瀯銆佸缓妯′笌璁捐涓夊ぇ鏂瑰悜鐨勫疄璺电粡楠屻€? 
+-    - title: Professor of Theoretical Physics
+-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
+-      year: 1911 - 1917
+-      description:
++- title: 鐮旂┒鏂瑰悜
++  type: nested_list
++  contents:
++    - title: 绔晶澶ц瑷€妯″瀷澶勭悊鍣紙LPU锛夊叏鏍堣璁?+      items:
++        - 鎺ㄧ悊妗嗘灦璁捐
++        - 绠楀瓙璁捐涓庝紭鍖?+        - 鏋舵瀯璁捐涓庢帰绱?+        - 寰灦鏋勮璁′笌浼樺寲
++        - 杞‖浠跺崗鍚岃璁? 
+-    - title: Associate Professor of Theoretical Physics
+-      institution: University of Zurich, Zurich, Switzerland
+-      year: 1909 - 1911
++- title: 鎸囧鐞嗗康
++  type: nested_list
++  contents:
++    - title: 鏂规硶璁哄厛琛岋紝鐞嗚涓庡疄璺佃灪鏃嬩笂鍗?+      items:
++        - 杩涚粍鍚庨鍏堢郴缁熷涔犱竴濂楄疮绌夸唬鐮佺紪鍐欍€佽鏂囧啓浣溿€佹柟妗堣璁＄殑閫氱敤鏂规硶璁猴紝鍐嶉€氳繃鏃ュ父绉戠爺宸ヤ綔灏嗗叾鍐呭寲銆?+    - title: 闈㈠悜浜т笟闇€姹傦紝鍩瑰吇鍏ㄦ爤鑳藉姏
++      items:
++        - 涓氬姟鑳藉姏瑕嗙洊 LPU 鍏ㄦ爤鐞嗚В锛屽寘鎷帹鐞嗘鏋躲€佺畻瀛愯璁′笌浼樺寲銆佹灦鏋勮璁′笌鎺㈢储銆佸井鏋舵瀯璁捐涓庝紭鍖栥€佽蒋纭欢鍗忓悓璁捐銆?+        - 閫氱敤浣庨樁鑳藉姏鍖呮嫭 Verilog銆丆++銆乁VM 鑺墖楠岃瘉锛涢€氱敤楂橀樁鑳藉姏鍖呮嫭鎶借薄銆佹紨缁庛€佺郴缁熸€濈淮涓庣粨鏋勫寲琛ㄨ揪銆?+    - title: 鏈夌粍缁囩鐮旓紝闆嗕腑鍔涢噺鍔炲ぇ浜?+      items:
++        - 璇鹃缁勫洿缁?LPU 鍏ㄦ爤寮€灞曠爺绌讹紝鍚勪綅鍚屽鍏卞悓缁存姢涓€涓鐮斿钩鍙帮紝骞跺洿缁曞叧閿ā鍧楁繁搴︿紭鍖栥€?+    - title: 娓愯繘寮忓煿鍏伙紝鍥犳潗鏂芥暀
++      items:
++        - 璋冭瘯浠ｇ爜鎴栧仛 UVM 楠岃瘉 鈫?鐙珛缂栧啓 C++/Verilog 浠ｇ爜 鈫?鎾板啓灏忔ā鍧楁柟妗?鈫?鎾板啓涓ā鍧楁柟妗?鈫?鎾板啓澶фā鍧楁柟妗?鈫?涓诲鍙︿竴鏍稿績妯″潡銆? 
+-- title: Open Source Projects
+-  type: time_table
++- title: 娌熼€氭満鍒?+  type: list
+   contents:
+-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
+-      year: 2015-now
+-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
++    - 姣忓懆涓€娆″叏浣撶粍浼氬榻愯繘搴︺€?+    - 鏃ュ父涓嶅畾鏈熸妧鏈粍浼氾紝鍖呮嫭鏂规涓茶銆佹柟妗堣璁恒€佷唬鐮佹瑙嗐€?+    - 淇濇寔涓€瀵逛竴绛旂枒锛岀‘淇濋棶棰樿兘澶熷強鏃惰В鍐炽€? 
+-- title: Honors and Awards
+-  type: time_table
++- title: 瀹炰範涓庡氨涓?+  type: nested_list
+   contents:
+-    - year: 1921
++    - title: 灏变笟杈呭
+       items:
+-        - Nobel Prize in Physics
+-        - Matteucci Medal
+-    - year: 2029
++        - 鍖呮嫭绠€鍘嗕慨鏀广€佹ā鎷熼潰璇曠瓑銆?+        - 琛ㄧ幇浼樼鑰呭彲鑾峰ぇ鍘傛牳蹇冮儴闂ㄥ唴鎺ㄦ満浼氥€?+    - title: 瀹炰範瀹夋帓
+       items:
+-        - Max Planck Medal
++        - 璇鹃缁勪笌涓ゅ鑺墖澶у巶寤烘湁瀹炰範鐢熷悎浣滃叧绯伙紝琛ㄧ幇浼樼鑰呭彲鐩存帴鍐呮帹銆?+        - 鏈弧瓒虫瘯涓氳姹傚墠鍘熷垯涓婁笉鍏佽鑷澶栧嚭瀹炰範锛涙弧瓒虫瘯涓氳姹傚悗鍏呭垎鏀捐銆? 
+-- title: Academic Interests
+-  type: nested_list
++- title: 鑽ｈ獕涓庡椤?+  type: time_table
+   contents:
+-    - title: Topic 1.
++    - year: 2021
+       items:
+-        - Description 1.
+-        - Description 2.
+-    - title: Topic 2.
++        - DAC-SDC'21 鍐犲啗锛堢缁忕綉缁滃姞閫熷櫒棰嗗煙 Top 绔炶禌锛屽叏鐞?116 鏀槦浼嶏紝鎵€鏈夋寚鏍囧潎绗竴锛?+        - 涓浗鐢靛瓙瀛︿細闆嗘垚鐢佃矾濂栧閲戜竴绛夊
++    - year: 2020
+       items:
+-        - Description 1.
+-        - Description 2.
++        - DAC-SDC'20 浜氬啗
+ 
+-- title: Other Interests
+-  type: list
++- title: 浠ｈ〃璁烘枃
++  type: time_table
+   contents:
+-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
++    - year: 2025
++      items:
++        - "Rui Li, Lin Li, Heng Yu, Masahiro Fujita, Weixiong Jiang*, Yajun Ha*: RefSCAT-2.0: Formal Verification of Large-Scale Optimized Multipliers via Quantum-Inspired Ant Colony Optimization-Based Reference Generation. IEEE TCAD, 2025."
++        - "Qi Deng, Hao Sun, Yuhao Shu, Jianzhong Xiao, Weixiong Jiang, Hui Wang, Yajun Ha: An Energy-Efficient and Real-Time FPGA-Based Point Cloud Registration Framework with Ultra-Fast and Configurable Multi-Mode Correspondence Search. ACM TRETS, 2025."
++        - "Shijie Meng, Qi Deng, Weixiong Jiang, Jinjie Huang, Hao Sun, Yajun Ha: An FPGA-Based Real-Time Loop Closure Detection Framework With Ultra-Fast Descriptor Generator. IEEE TCAS-I, 2025."
++        - "Shen Zhang, Bin Ning, Guangyao Yan, Xinzhe Liu, Weixiong Jiang, Yajun Ha: QuantTPM: Efficient Mixed-Precision Quantization Framework for Tractable Probabilistic Models. IEEE TCAD, 2025."
++        - "Junge Xu, Fan Zhang, Wenguang Jin, Kun Yang, Zeke Wang, Weixiong Jiang, Yajun Ha: A Deep Investigation on Stealthy DVFS Fault Injection Attacks at DNN Hardware Accelerators. IEEE TCAD, 2025."
++        - "Jingjin Li, Weixiong Jiang, Yuting He, Qingyu Yang, Anqi Gao, Yajun Ha, Ender 脰zcan, Ruibin Bai, Tianxiang Cui, Heng Yu: FiDRL: Flexible Invocation-Based Deep Reinforcement Learning for DVFS Scheduling in Embedded Systems. IEEE Transactions on Computers, 2025."
++    - year: 2023
++      items:
++        - "Weixiong Jiang, Heng Yu, Yajun Ha: A High-Throughput Full-Dataflow MobileNetv2 Accelerator on Edge FPGA. IEEE TCAD, 2023."
++        - "Weixiong Jiang, Heng Yu, Fupeng Chen, Yajun Ha: AOS: An Automated Overclocking System for High-Performance CNN Accelerator Through Timing Delay Measurement on FPGA. IEEE TCAD, 2023."
++    - year: 2022
++      items:
++        - "Weixiong Jiang, Heng Yu, Hongtu Zhang, Yuhao Shu, Rui Li, Jian Chen, Yajun Ha: FODM: A Framework for Accurate Online Delay Measurement Supporting All Timing Paths in FPGA. IEEE TVLSI, 2022."
++        - "Fupeng Chen, Heng Yu, Weixiong Jiang, Yajun Ha: Quality Optimization of Adaptive Applications via Deep Reinforcement Learning in Energy Harvesting Edge Devices. IEEE TCAD, 2022."
++        - "Jian Chen, Wenfeng Zhao, Yuqi Wang, Yuhao Shu, Weixiong Jiang, Yajun Ha: A Reliable 8T SRAM for High-Speed Searching and Logic-in-Memory Operations. IEEE TVLSI, 2022."
++    - year: 2021
++      items:
++        - "Weixiong Jiang, Heng Yu, Xinzhe Liu, Hao Sun, Rui Li, Yajun Ha: TAIT: One-Shot Full-Integer Lightweight DNN Quantization via Tunable Activation Imbalance Transfer. DAC, 2021."
++        - "Hongtu Zhang, Yuhao Shu, Weixiong Jiang, Zihan Yin, Wenfeng Zhao, Yajun Ha: A 55nm, 0.4V 5526-TOPS/W Compute-in-Memory Binarized CNN Accelerator for AIoT Applications. IEEE TCAS-II, 2021."
++    - year: 2020
++      items:
++        - "Weixiong Jiang, Rui Li, Heng Yu, Yajun Ha: An Accurate FPGA Online Delay Monitor Supporting All Timing Paths. ISCAS, 2020."
++        - "Hao Sun, Xinzhe Liu, Qi Deng, Weixiong Jiang, Shaobo Luo, Yajun Ha: Efficient FPGA Implementation of K-Nearest-Neighbor Search Algorithm for 3D LIDAR Localization and Mapping in Smart Vehicles. IEEE TCAS-II, 2020."
+diff --git a/_data/cv_en.yml b/_data/cv_en.yml
+new file mode 100644
+index 0000000..9f0dd71
+--- /dev/null
++++ b/_data/cv_en.yml
+@@ -0,0 +1,150 @@
++- title: Profile
++  type: profile
++  image: prof_pic_jiang.png
++  name: Weixiong Jiang
++  subtitle: Assistant Professor, College of Electronics and Information Engineering, Tongji University
++  summary:
++    - Weixiong Jiang is an Assistant Professor at the College of Electronics and Information Engineering, Tongji University. He received his B.Eng. in Electromagnetic Field and Wireless Technology from Harbin Institute of Technology in 2017 and his Ph.D. in Microelectronics and Solid State Electronics from the University of Chinese Academy of Sciences in 2022.
++    - After completing his doctorate, he worked in Huawei HiSilicon's Turing Architecture Department and NIO's autonomous driving chip division, focusing on GPU and NPU architecture definition, key module analysis, solution design, RTL development, and performance modeling across the major front-end roles of digital chip design.
++    - Over the past five years, he has published more than ten papers in leading integrated-circuit journals and conferences such as TCAD, TCAS-I, TCAS-II, TVLSI, and DAC, including six papers as first or corresponding author, and holds two granted international patents.
++  highlights:
++    - AI processors and software stacks
++    - Edge large language model processors
++    - Architecture exploration and software-hardware co-design
++
++- title: Basic Information
++  type: map
++  contents:
++    - name: Name
++      value: Weixiong Jiang
++    - name: Title
++      value: Assistant Professor
++    - name: Discipline
++      value: Electronic Science and Technology
++    - name: Major
++      value: Microelectronics
++    - name: Research Area
++      value: AI processor and software stack design
++    - name: Email
++      value: jiangweixiong@tongji.edu.cn
++    - name: Phone
++      value: 17612153732
++    - name: Lab Website
++      links:
++        - name: Visit
++          link: https://tju-opentpu.feishu.cn/wiki/UmSNwezqTi0y6gkG8L0cEwl4n1f
++    - name: Homepage
++      links:
++        - name: Visit
++          link: https://jiangwx.github.io
++    - name: Xiaohongshu
++      value: 鍚屾祹澶у鍋欰I鑺墖鐨勫浼熼泟
++
++- title: Education
++  type: time_table
++  contents:
++    - title: Ph.D. in Microelectronics and Solid State Electronics, University of Chinese Academy of Sciences
++      year: 2022
++    - title: B.Eng. in Electromagnetic Field and Wireless Technology, Harbin Institute of Technology
++      year: 2017
++
++- title: Professional Experience
++  type: time_table
++  contents:
++    - title: Assistant Professor, College of Electronics and Information Engineering, Tongji University
++      year: 2025-present
++      description:
++        - Joined Tongji University in July 2025.
++        - Conducts teaching and research on AI processors and software stacks.
++    - title: Huawei HiSilicon Turing Architecture Department and NIO Autonomous Driving Chip Division
++      year: 2022-2025
++      description:
++        - Worked on GPU and NPU architecture definition, key module analysis, solution design, RTL development, and performance modeling.
++        - Built systematic industry experience across architecture, modeling, and design in digital chip front-end development.
++
++- title: Research Directions
++  type: nested_list
++  contents:
++    - title: End-to-end design of edge large language model processors (LPU)
++      items:
++        - Inference framework design
++        - Operator design and optimization
++        - Architecture design and exploration
++        - Microarchitecture design and optimization
++        - Software-hardware co-design
++
++- title: Mentoring Philosophy
++  type: nested_list
++  contents:
++    - title: Methodology first, with theory and practice reinforcing each other
++      items:
++        - Students first learn a general methodology that spans coding, paper writing, and technical proposal design, then internalize it through daily research work.
++    - title: Industry-oriented training with full-stack capability
++      items:
++        - Research training covers the full LPU stack, including inference frameworks, operator design and optimization, architecture exploration, microarchitecture optimization, and software-hardware co-design.
++        - Foundational skills include Verilog, C++, and UVM verification; higher-level skills emphasize abstraction, deduction, systems thinking, and structured communication.
++    - title: Organized research with shared infrastructure
++      items:
++        - The group develops research around a shared LPU full-stack platform, with students jointly maintaining the platform and deeply optimizing key modules.
++    - title: Progressive and personalized training
++      items:
++        - Debugging or UVM verification -> independent C++ or Verilog development -> small-module proposal writing -> medium-module proposal writing -> large-module proposal writing -> leadership of another core module.
++
++- title: Communication Mechanism
++  type: list
++  contents:
++    - A full group meeting is held every week to align progress.
++    - Additional technical meetings are organized as needed for proposal walkthroughs, design discussions, and code reviews.
++    - One-on-one discussions are maintained to resolve issues in a timely manner.
++
++- title: Internships and Career Development
++  type: nested_list
++  contents:
++    - title: Career support
++      items:
++        - Includes resume revision and mock interviews.
++        - Outstanding students may receive referrals to core teams in major companies.
++    - title: Internship arrangement
++      items:
++        - The group maintains internship partnerships with two major chip companies, and strong students can be directly referred.
++        - In principle, students are not encouraged to take outside internships before meeting graduation requirements; after those requirements are met, internship participation is fully supported.
++
++- title: Honors and Awards
++  type: time_table
++  contents:
++    - year: 2021
++      items:
++        - DAC-SDC'21 Champion (top accelerator competition in neural-network hardware; 116 teams worldwide; ranked first on every metric)
++        - First Prize, Integrated Circuit Scholarship of the Chinese Institute of Electronics
++    - year: 2020
++      items:
++        - DAC-SDC'20 Runner-up
++
++- title: Selected Publications
++  type: time_table
++  contents:
++    - year: 2025
++      items:
++        - "Rui Li, Lin Li, Heng Yu, Masahiro Fujita, Weixiong Jiang*, Yajun Ha*: RefSCAT-2.0: Formal Verification of Large-Scale Optimized Multipliers via Quantum-Inspired Ant Colony Optimization-Based Reference Generation. IEEE TCAD, 2025."
++        - "Qi Deng, Hao Sun, Yuhao Shu, Jianzhong Xiao, Weixiong Jiang, Hui Wang, Yajun Ha: An Energy-Efficient and Real-Time FPGA-Based Point Cloud Registration Framework with Ultra-Fast and Configurable Multi-Mode Correspondence Search. ACM TRETS, 2025."
++        - "Shijie Meng, Qi Deng, Weixiong Jiang, Jinjie Huang, Hao Sun, Yajun Ha: An FPGA-Based Real-Time Loop Closure Detection Framework With Ultra-Fast Descriptor Generator. IEEE TCAS-I, 2025."
++        - "Shen Zhang, Bin Ning, Guangyao Yan, Xinzhe Liu, Weixiong Jiang, Yajun Ha: QuantTPM: Efficient Mixed-Precision Quantization Framework for Tractable Probabilistic Models. IEEE TCAD, 2025."
++        - "Junge Xu, Fan Zhang, Wenguang Jin, Kun Yang, Zeke Wang, Weixiong Jiang, Yajun Ha: A Deep Investigation on Stealthy DVFS Fault Injection Attacks at DNN Hardware Accelerators. IEEE TCAD, 2025."
++        - "Jingjin Li, Weixiong Jiang, Yuting He, Qingyu Yang, Anqi Gao, Yajun Ha, Ender 脰zcan, Ruibin Bai, Tianxiang Cui, Heng Yu: FiDRL: Flexible Invocation-Based Deep Reinforcement Learning for DVFS Scheduling in Embedded Systems. IEEE Transactions on Computers, 2025."
++    - year: 2023
++      items:
++        - "Weixiong Jiang, Heng Yu, Yajun Ha: A High-Throughput Full-Dataflow MobileNetv2 Accelerator on Edge FPGA. IEEE TCAD, 2023."
++        - "Weixiong Jiang, Heng Yu, Fupeng Chen, Yajun Ha: AOS: An Automated Overclocking System for High-Performance CNN Accelerator Through Timing Delay Measurement on FPGA. IEEE TCAD, 2023."
++    - year: 2022
++      items:
++        - "Weixiong Jiang, Heng Yu, Hongtu Zhang, Yuhao Shu, Rui Li, Jian Chen, Yajun Ha: FODM: A Framework for Accurate Online Delay Measurement Supporting All Timing Paths in FPGA. IEEE TVLSI, 2022."
++        - "Fupeng Chen, Heng Yu, Weixiong Jiang, Yajun Ha: Quality Optimization of Adaptive Applications via Deep Reinforcement Learning in Energy Harvesting Edge Devices. IEEE TCAD, 2022."
++        - "Jian Chen, Wenfeng Zhao, Yuqi Wang, Yuhao Shu, Weixiong Jiang, Yajun Ha: A Reliable 8T SRAM for High-Speed Searching and Logic-in-Memory Operations. IEEE TVLSI, 2022."
++    - year: 2021
++      items:
++        - "Weixiong Jiang, Heng Yu, Xinzhe Liu, Hao Sun, Rui Li, Yajun Ha: TAIT: One-Shot Full-Integer Lightweight DNN Quantization via Tunable Activation Imbalance Transfer. DAC, 2021."
++        - "Hongtu Zhang, Yuhao Shu, Weixiong Jiang, Zihan Yin, Wenfeng Zhao, Yajun Ha: A 55nm, 0.4V 5526-TOPS/W Compute-in-Memory Binarized CNN Accelerator for AIoT Applications. IEEE TCAS-II, 2021."
++    - year: 2020
++      items:
++        - "Weixiong Jiang, Rui Li, Heng Yu, Yajun Ha: An Accurate FPGA Online Delay Monitor Supporting All Timing Paths. ISCAS, 2020."
++        - "Hao Sun, Xinzhe Liu, Qi Deng, Weixiong Jiang, Shaobo Luo, Yajun Ha: Efficient FPGA Implementation of K-Nearest-Neighbor Search Algorithm for 3D LIDAR Localization and Mapping in Smart Vehicles. IEEE TCAS-II, 2020."
+\ No newline at end of file
+diff --git a/_data/repositories.yml b/_data/repositories.yml
+index c2d7269..09e13a8 100644
+--- a/_data/repositories.yml
++++ b/_data/repositories.yml
+@@ -1,14 +1,7 @@
+ github_users:
+-  - torvalds
+-  - alshedivat
++  - jiangwx
+ 
+ repo_description_lines_max: 2
+ 
+ github_repos:
+-  - alshedivat/al-folio
+-  - jekyll/jekyll
+-  - twbs/bootstrap
+-  - jquery/jquery
+-  - FortAwesome/Font-Awesome
+-  - mathjax/MathJax
+-  - jpswalsh/academicons
++  - jiangwx/jiangwx.github.io
+diff --git a/_data/socials.yml b/_data/socials.yml
+index 7011e9c..fb9db36 100644
+--- a/_data/socials.yml
++++ b/_data/socials.yml
+@@ -10,14 +10,13 @@
+ # bluesky_url: # your bluesky URL
+ # dblp_url: # your DBLP profile url
+ # discord_id: # your discord id (18-digit unique numerical identifier)
+-email: you@example.com # your email address
++email: jiangweixiong@tongji.edu.cn
+ # facebook_id: # your facebook id
+ # flickr_id: # your flickr id
+-# github_username: # your GitHub user name
++github_username: jiangwx
+ # gitlab_username: # your GitLab user name
+ # hal_id: # your HAL id (https://hal.science/)
+ # ieee_id: # your ieeexplore.ieee.org/author/id
+-inspirehep_id: 1010907 # Inspire HEP author ID
+ # instagram_id: # your instagram id
+ # kaggle_id: # your kaggle id
+ # keybase_username: # your keybase user name
+@@ -27,7 +26,7 @@ inspirehep_id: 1010907 # Inspire HEP author ID
+ # linkedin_username: # your LinkedIn user name
+ # mastodon_username: # your mastodon instance+username in the format instance.tld/@username
+ # medium_username: # your Medium username
+-# orcid_id: # your ORCID ID
++orcid_id: 0000-0002-6014-6453
+ # osf_id: # your OSF ID
+ # pinterest_id: # your pinterest id
+ # publons_id: # your ID on Publons
+@@ -46,11 +45,7 @@ scholar_userid: qc6CJjYAAAAJ # your Google Scholar ID
+ # whatsapp_number: # your WhatsApp number (full phone number in international format. Omit any zeroes, brackets, or dashes when adding the phone number in international format.)
+ # wikidata_id: # your wikidata id
+ # wikipedia_id: # your wikipedia id (Case sensitive)
+-# work_url: # work page URL
++work_url: https://tju-opentpu.feishu.cn/wiki/UmSNwezqTi0y6gkG8L0cEwl4n1f
+ # x_username: # your X handle
+ # youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
+ # zotero_username: # your zotero username
+-custom_social: # can be any name here other than the ones already defined above
+-  logo: https://www.alberteinstein.com/wp-content/uploads/2024/03/cropped-favicon-192x192.png # can be png, svg, jpg
+-  title: Custom Social
+-  url: https://www.alberteinstein.com/
+diff --git a/_includes/head.liquid b/_includes/head.liquid
+index 69e99de..8822869 100644
+--- a/_includes/head.liquid
++++ b/_includes/head.liquid
+@@ -1,6 +1,47 @@
+ <!-- Metadata, OpenGraph and Schema.org -->
+ {% include metadata.liquid %}
+ 
++<script>
++  (function () {
++    var storageKey = 'jiangwx-site-language';
++    var cookieKey = 'jiangwx-site-language';
++    var preferredLanguage = 'zh';
++
++    function readCookie(name) {
++      var cookiePrefix = name + '=';
++      var cookieParts = document.cookie ? document.cookie.split(';') : [];
++
++      for (var index = 0; index < cookieParts.length; index += 1) {
++        var cookie = cookieParts[index].trim();
++        if (cookie.indexOf(cookiePrefix) === 0) {
++          return cookie.substring(cookiePrefix.length);
++        }
++      }
++
++      return null;
++    }
++
++    try {
++      if (window.localStorage.getItem(storageKey) === 'en') {
++        preferredLanguage = 'en';
++      } else if (readCookie(cookieKey) === 'en') {
++        preferredLanguage = 'en';
++      }
++    } catch (error) {
++      preferredLanguage = readCookie(cookieKey) === 'en' ? 'en' : 'zh';
++    }
++
++    document.documentElement.setAttribute('lang', preferredLanguage === 'en' ? 'en' : 'zh-CN');
++    document.documentElement.setAttribute('data-language', preferredLanguage);
++  })();
++</script>
++<style>
++  html[data-language='zh'] [data-language-panel='en'],
++  html[data-language='en'] [data-language-panel='zh'] {
++    display: none !important;
++  }
++</style>
++
+ <!-- Bootstrap & MDB -->
+ <link rel="stylesheet" href="{{ '/assets/css/bootstrap.min.css' | relative_url | bust_file_cache }}">
+ <link
+@@ -71,7 +112,7 @@
+ 
+ {% if site.enable_darkmode %}
+   <!-- Dark Mode -->
+-  <script src="{{ '/assets/js/theme.js' | relative_url | bust_file_cache }}"></script>
++  <script src="{{ '/assets/js/theme.min.js' | relative_url | bust_file_cache }}"></script>
+   <link
+     defer
+     rel="stylesheet"
+diff --git a/_includes/localized_text.liquid b/_includes/localized_text.liquid
+new file mode 100644
+index 0000000..698ffdf
+--- /dev/null
++++ b/_includes/localized_text.liquid
+@@ -0,0 +1,10 @@
++{% assign localized_zh = include.zh %}
++{% assign localized_en = include.en %}
++{% assign localized_fallback = include.fallback %}
++
++{% if localized_zh or localized_en %}
++  <span data-language-panel="zh">{{ localized_zh | default: localized_fallback }}</span>
++  <span data-language-panel="en">{{ localized_en | default: localized_fallback }}</span>
++{% elsif localized_fallback %}
++  {{ localized_fallback }}
++{% endif %}
+\ No newline at end of file
+diff --git a/_includes/scripts.liquid b/_includes/scripts.liquid
+index acfef4b..4f76824 100644
+--- a/_includes/scripts.liquid
++++ b/_includes/scripts.liquid
+@@ -182,6 +182,85 @@
+ <!-- Load Common JS -->
+ <script src="{{ '/assets/js/no_defer.js' | relative_url | bust_file_cache }}"></script>
+ <script defer src="{{ '/assets/js/common.js' | relative_url | bust_file_cache }}"></script>
++<script>
++  document.addEventListener('DOMContentLoaded', function () {
++    var toggleButtons = document.querySelectorAll('[data-language-toggle]');
++
++    if (!toggleButtons.length) {
++      return;
++    }
++
++    var storageKey = 'jiangwx-site-language';
++    var cookieKey = 'jiangwx-site-language';
++
++    function readCookie(name) {
++      var cookiePrefix = name + '=';
++      var cookieParts = document.cookie ? document.cookie.split(';') : [];
++
++      for (var index = 0; index < cookieParts.length; index += 1) {
++        var cookie = cookieParts[index].trim();
++        if (cookie.indexOf(cookiePrefix) === 0) {
++          return cookie.substring(cookiePrefix.length);
++        }
++      }
++
++      return null;
++    }
++
++    function readLanguage() {
++      try {
++        if (window.localStorage.getItem(storageKey) === 'en') {
++          return 'en';
++        }
++      } catch (error) {
++        return readCookie(cookieKey) === 'en' ? 'en' : 'zh';
++      }
++
++      return readCookie(cookieKey) === 'en' ? 'en' : 'zh';
++    }
++
++    function writeLanguage(language) {
++      try {
++        window.localStorage.setItem(storageKey, language);
++      } catch (error) {
++      }
++
++      document.cookie = cookieKey + '=' + language + '; path=/; max-age=31536000; samesite=lax';
++    }
++
++    function applyLanguage(language) {
++      var nextLanguage = language === 'en' ? 'en' : 'zh';
++      document.documentElement.setAttribute('lang', nextLanguage === 'en' ? 'en' : 'zh-CN');
++      document.documentElement.setAttribute('data-language', nextLanguage);
++
++      document.querySelectorAll('[data-language-root]').forEach(function (root) {
++        root.setAttribute('data-language', nextLanguage);
++      });
++
++      toggleButtons.forEach(function (button) {
++        button.textContent = nextLanguage === 'zh' ? 'English' : '涓枃';
++        button.setAttribute('aria-label', nextLanguage === 'zh' ? '鍒囨崲鍒拌嫳鏂? : '鍒囨崲鍒颁腑鏂?);
++        button.classList.toggle('is-language-active', nextLanguage === 'en');
++
++        var navItem = button.closest('.nav-item');
++        if (navItem) {
++          navItem.classList.toggle('language-active', nextLanguage === 'en');
++        }
++      });
++    }
++
++    toggleButtons.forEach(function (button) {
++      button.addEventListener('click', function () {
++        var currentLanguage = readLanguage();
++        var nextLanguage = currentLanguage === 'zh' ? 'en' : 'zh';
++        writeLanguage(nextLanguage);
++        applyLanguage(nextLanguage);
++      });
++    });
++
++    applyLanguage(readLanguage());
++  });
++</script>
+ <script defer src="{{ '/assets/js/copy_code.js' | relative_url | bust_file_cache }}" type="text/javascript"></script>
+ 
+ <!-- Jupyter Open External Links New Tab -->
+@@ -317,7 +396,7 @@
+   <!-- Search -->
+   <script type="module" src="{{ '/assets/js/search/ninja-keys.min.js' | relative_url | bust_file_cache }}"></script>
+   <ninja-keys hideBreadcrumbs noAutoLoadMdIcons placeholder="Type to start searching"></ninja-keys>
+-  <script src="{{ '/assets/js/search-setup.js' | relative_url | bust_file_cache }}"></script>
++  <script src="{{ '/assets/js/search-setup.min.js' | relative_url | bust_file_cache }}"></script>
+   <script src="{{ '/assets/js/search-data.js' | relative_url }}"></script>
+   <script src="{{ '/assets/js/shortcut-key.js' | relative_url | bust_file_cache }}"></script>
+ {% endif %}
+diff --git a/_layouts/cv.liquid b/_layouts/cv.liquid
+index 17f6c41..6ef678b 100644
+--- a/_layouts/cv.liquid
++++ b/_layouts/cv.liquid
+@@ -1,11 +1,11 @@
+ ---
+ layout: default
+ ---
+-{% unless site.data.resume %}
++{% if site.data.cv and site.data.cv.size > 0 %}
+   <div class="post">
+     <header class="post-header">
+       <h1 class="post-title">
+-        {{ page.title }}
++        {% include localized_text.liquid zh=page.title_zh en=page.title_en fallback=page.title %}
+         {% if page.cv_pdf %}
+           <a
+             {% if page.cv_pdf contains '://' %}
+@@ -21,38 +21,23 @@ layout: default
+           </a>
+         {% endif %}
+       </h1>
+-      {% if page.description %}
+-        <p class="post-description">{{ page.description }}</p>
++      {% if page.description or page.description_zh or page.description_en %}
++        <p class="post-description">
++          {% include localized_text.liquid zh=page.description_zh en=page.description_en fallback=page.description %}
++        </p>
+       {% endif %}
+     </header>
+ 
+     <article>
+-      <div class="cv">
+-        {% for entry in site.data.cv %}
+-          <a class="anchor" id="{{ entry.title }}"></a>
+-          <div class="card mt-3 p-3">
+-            <h3 class="card-title font-weight-medium">{{ entry.title }}</h3>
+-            <div>
+-              {% if entry.type == 'list' %}
+-                {% include cv/list.liquid %}
+-              {% elsif entry.type == 'map' %}
+-                {% include cv/map.liquid %}
+-              {% elsif entry.type == 'nested_list' %}
+-                {% include cv/nested_list.liquid %}
+-              {% elsif entry.type == 'time_table' %}
+-                {% include cv/time_table.liquid %}
+-              {% elsif entry.type == 'list_groups' %}
+-                {% include cv/list_groups.liquid %}
+-              {% else %}
+-                {{ entry.contents }}
+-              {% endif %}
+-            </div>
+-          </div>
+-        {% endfor %}
++      <div class="cv" data-language-panel="zh">
++        {% include cv/sections.liquid entries=site.data.cv %}
++      </div>
++      <div class="cv" data-language-panel="en">
++        {% include cv/sections.liquid entries=site.data.cv_en %}
+       </div>
+     </article>
+   </div>
+-{% else %}
++{% elsif site.data.resume %}
+   <div class="post">
+     <header class="post-header">
+       <h1 class="post-title">
+@@ -124,4 +109,4 @@ layout: default
+       </div>
+     </article>
+   </div>
+-{% endunless %}
++{% endif %}
+diff --git a/_pages/about.md b/_pages/about.md
+index 09b5a36..30e6468 100644
+--- a/_pages/about.md
++++ b/_pages/about.md
+@@ -2,30 +2,133 @@
+ layout: about
+ title: about
+ permalink: /
+-subtitle: FPGA | EDA | Hardware Security | Deep Reinforcement Learning
++language_toggle: true
++name_zh: 濮滀紵闆?+name_en: Weixiong Jiang
++subtitle_zh: 鍚屾祹澶у鐢靛瓙涓庝俊鎭伐绋嬪闄㈠姪鐞嗘暀鎺?+subtitle_en: Assistant Professor, Tongji University
+ 
+-profile:
+-  align: right
+-    image: prof_pic.jpg
+-      image_circular: false
+-        more_info:
++selected_papers: false
++social: false
+ 
+-        selected_papers: true
+-        social: true
++announcements:
++  enabled: false
+ 
+-        announcements:
+-          enabled: true
+-            scrollable: true
+-              limit: 5
++latest_posts:
++  enabled: false
++---
++
++<div class="homepage-language-shell" data-language-root data-language="zh">
++  <section class="homepage-hero-panel">
++    <div class="homepage-hero-copy" data-language-panel="zh">
++      <p class="homepage-kicker">AI 澶勭悊鍣ㄤ笌杞欢鏍堣璁?/p>
++      <p class="homepage-lead">鑱氱劍绔晶澶ц瑷€妯″瀷澶勭悊鍣ㄣ€佺畻瀛愪紭鍖栥€佹灦鏋勬帰绱笌杞‖浠跺崗鍚岃璁°€?/p>
++      <p class="homepage-summary">濮滀紵闆勭幇浠诲悓娴庡ぇ瀛︾數瀛愪笌淇℃伅宸ョ▼瀛﹂櫌鍔╃悊鏁欐巿銆傚崥澹瘯涓氬悗鍏堝悗浠昏亴浜庡崕涓烘捣鎬濆浘鐏垫灦鏋勯儴涓庤敋鏉ユ苯杞﹁嚜鍔ㄩ┚椹惰姱鐗囧紑鍙戦儴锛岄暱鏈熶粠浜?GPU 涓?NPU 鐨勬灦鏋勫畾涔夈€佹柟妗堣璁°€丷TL 寮€鍙戝強鎬ц兘寤烘ā銆?/p>
++    </div>
++
++    <div class="homepage-hero-copy" data-language-panel="en">
++      <p class="homepage-kicker">AI Processors and Software Stacks</p>
++      <p class="homepage-lead">Focused on edge LLM processors, operator optimization, architecture exploration, and software-hardware co-design.</p>
++      <p class="homepage-summary">Weixiong Jiang is an Assistant Professor at Tongji University. Before joining academia, he worked in Huawei HiSilicon's Turing Architecture Department and NIO's autonomous driving chip team on GPU/NPU architecture, solution design, RTL development, and performance modeling.</p>
++    </div>
++
++    <div class="homepage-chip-row" data-language-panel="zh">
++      <span class="homepage-chip">鍝堝皵婊ㄥ伐涓氬ぇ瀛?瀛﹀＋ 2017</span>
++      <span class="homepage-chip">涓浗绉戝闄㈠ぇ瀛?鍗氬＋ 2022</span>
++      <span class="homepage-chip">鍗庝负娴锋€濄€佽敋鏉ヨ姱鐗囧洟闃熶骇涓氱粡鍘?/span>
++      <span class="homepage-chip">绔晶 LPU 鍏ㄦ爤鐮旂┒</span>
++    </div>
++
++    <div class="homepage-chip-row" data-language-panel="en">
++      <span class="homepage-chip">B.Eng., Harbin Institute of Technology, 2017</span>
++      <span class="homepage-chip">Ph.D., UCAS, 2022</span>
++      <span class="homepage-chip">Huawei HiSilicon and NIO chip experience</span>
++      <span class="homepage-chip">Full-stack LPU research</span>
++    </div>
++
++    <div class="homepage-action-row" data-language-panel="zh">
++      <a class="homepage-action" href="/cv/">涓汉绠€鍘?/a>
++      <a class="homepage-action homepage-action-secondary" href="/publications/">璁烘枃</a>
++      <a class="homepage-action homepage-action-secondary" href="/projects/">椤圭洰</a>
++    </div>
++
++    <div class="homepage-action-row" data-language-panel="en">
++      <a class="homepage-action" href="/cv/">CV</a>
++      <a class="homepage-action homepage-action-secondary" href="/publications/">Publications</a>
++      <a class="homepage-action homepage-action-secondary" href="/projects/">Projects</a>
++    </div>
++  </section>
++
++  <div class="homepage-section-grid" data-language-panel="zh">
++    <section class="homepage-panel">
++      <h2>鐮旂┒鏂瑰悜</h2>
++      <ul class="homepage-list">
++        <li>绔晶澶ц瑷€妯″瀷澶勭悊鍣紙LPU锛夊叏鏍堣璁?/li>
++        <li>鎺ㄧ悊妗嗘灦銆佺畻瀛愯璁′笌浼樺寲</li>
++        <li>鏋舵瀯鎺㈢储涓庡井鏋舵瀯璁捐</li>
++        <li>杞‖浠跺崗鍚岃璁?/li>
++      </ul>
++    </section>
++
++    <section class="homepage-panel">
++      <h2>鎷涚敓璇存槑</h2>
++      <p>娆㈣繋鏈夋剰鎶ヨ€冪殑纭曞＋銆佸崥澹悓瀛﹁仈绯汇€傝棰樼粍鍥寸粫 LPU 鍏ㄦ爤寮€灞曟湁缁勭粐绉戠爺锛屽己璋冩柟娉曡璁粌銆佺郴缁熻兘鍔涘煿鍏讳笌浜т笟鍦烘櫙缁撳悎銆?/p>
++      <p>鍩瑰吇鏂瑰紡瑕嗙洊浠ｇ爜鑳藉姏銆佺郴缁熻璁°€佽鏂囧啓浣滀笌宸ョ▼钀藉湴锛岄€傚悎甯屾湜鍚屾椂鎻愬崌鐮旂┒娣卞害涓庝骇涓氳兘鍔涚殑鍚屽銆?/p>
++    </section>
++  </div>
++
++  <div class="homepage-section-grid" data-language-panel="en">
++    <section class="homepage-panel">
++      <h2>Research</h2>
++      <ul class="homepage-list">
++        <li>End-to-end LPU design for edge large language models</li>
++        <li>Inference frameworks, operator design, and optimization</li>
++        <li>Architecture exploration and microarchitecture design</li>
++        <li>Software-hardware co-design</li>
++      </ul>
++    </section>
+ 
+-              latest_posts:
+-                enabled: false
+-                  scrollable: true
+-                    limit: 3
+-                    ---
++    <section class="homepage-panel">
++      <h2>Recruitment</h2>
++      <p>Prospective M.S. and Ph.D. students are welcome to reach out. The group is organized around a shared LPU full-stack research platform with strong emphasis on methodology, systems thinking, and industry relevance.</p>
++      <p>The training path covers coding, system design, paper writing, and engineering execution for students aiming to build both research depth and practical capability.</p>
++    </section>
++  </div>
+ 
+-                    I am Weixiong Jiang. My research interests span FPGA acceleration, EDA (Electronic Design Automation), hardware security, and deep reinforcement learning for embedded systems.
++  <section class="homepage-panel homepage-contact-panel" data-language-panel="zh">
++    <h2>鑱旂郴</h2>
++    <div class="homepage-contact-grid homepage-contact-grid-stacked">
++      <a class="homepage-contact-item" href="mailto:jiangweixiong@tongji.edu.cn">
++        <strong>閭</strong>
++        <span>jiangweixiong@tongji.edu.cn</span>
++      </a>
++      <a class="homepage-contact-item" href="https://tju-opentpu.feishu.cn/wiki/UmSNwezqTi0y6gkG8L0cEwl4n1f">
++        <strong>璇鹃缁勪富椤?/strong>
++        <span>OpenTPU Lab Wiki</span>
++      </a>
++      <div class="homepage-contact-item">
++        <strong>灏忕孩涔?/strong>
++        <span>鍚屾祹澶у鍋欰I鑺墖鐨勫浼熼泟</span>
++      </div>
++    </div>
++  </section>
+ 
+-                    My work focuses on designing energy-efficient and high-performance FPGA-based accelerators for applications including CNN inference, point cloud registration, loop closure detection, and graph cut algorithms. I also explore DVFS (Dynamic Voltage and Frequency Scaling) techniques for energy optimization and reliability enhancement in FPGA and embedded platforms.
++  <section class="homepage-panel homepage-contact-panel" data-language-panel="en">
++    <h2>Contact</h2>
++    <div class="homepage-contact-grid">
++      <a class="homepage-contact-item" href="mailto:jiangweixiong@tongji.edu.cn">
++        <strong>Email</strong>
++        <span>jiangweixiong@tongji.edu.cn</span>
++      </a>
++      <a class="homepage-contact-item" href="https://tju-opentpu.feishu.cn/wiki/UmSNwezqTi0y6gkG8L0cEwl4n1f">
++        <strong>Lab Wiki</strong>
++        <span>OpenTPU Lab</span>
++      </a>
++      <div class="homepage-contact-item">
++        <strong>Xiaohongshu</strong>
++        <span>鍚屾祹澶у鍋欰I鑺墖鐨勫浼熼泟</span>
++      </div>
++    </div>
++  </section>
++</div>
+ 
+-                    In the EDA domain, I have contributed to formal verification of arithmetic circuits, including the RefSCAT series for logic-optimized multiplier verification. I am also interested in hardware security topics such as DVFS-based fault injection attacks on DNN accelerators.
+diff --git a/_pages/cv.md b/_pages/cv.md
+index f13f402..3d84313 100644
+--- a/_pages/cv.md
++++ b/_pages/cv.md
+@@ -2,10 +2,11 @@
+ layout: cv
+ permalink: /cv/
+ title: cv
++title_zh: 涓汉绠€鍘?+title_en: cv
+ nav: true
+ nav_order: 5
+-cv_pdf: example_pdf.pdf # you can also use external links here
+-description: This is a description of the page. You can modify it in '_pages/cv.md'. You can also change or remove the top pdf download button.
+-toc:
+-  sidebar: left
++description: 鏁欒偛缁忓巻銆佸伐浣滅粡鍘嗐€佺爺绌舵柟鍚戜笌浠ｈ〃鎴愭灉銆?+description_zh: 鏁欒偛缁忓巻銆佸伐浣滅粡鍘嗐€佺爺绌舵柟鍚戜笌浠ｈ〃鎴愭灉銆?+description_en: Education, professional experience, research directions, and selected publications.
+ ---
+diff --git a/_projects/lpu.md b/_projects/lpu.md
+new file mode 100644
+index 0000000..468d31e
+--- /dev/null
++++ b/_projects/lpu.md
+@@ -0,0 +1,88 @@
++---
++layout: page
++title: LPU
++description: 闈㈠悜绔晶澶фā鍨嬫帹鐞嗙殑澶勭悊鍣ㄦ灦鏋勮璁￠」鐩紝瑕嗙洊闇€姹傚垎鏋愩€佹灦鏋勫畾涔夈€丮emory Model銆丒xecution Model 涓庡悗缁?RTL 钀藉湴璺緞銆?+img: assets/img/projects/lpu/lpu-overview.png
++importance: 1
++category: work
++---
++
++LPU 椤圭洰鐨勭洰鏍囷紝鏄洿缁曠渚уぇ妯″瀷鎺ㄧ悊鍦烘櫙锛岀郴缁熸€у湴瀹屾垚涓€濂楀鐞嗗櫒鏋舵瀯鐨勫畾涔変笌瀹炵幇璺緞璁捐銆傝繖涓」鐩笉浠呭叧娉ㄧ畻瀛愭敮鎸佸拰鎬ц兘鐩爣锛屼篃寮鸿皟浠庨渶姹傘€佹灦鏋勩€佹寚浠ら泦鍒版ā鍨嬮獙璇佸拰 RTL 瀹炵幇鐨勫畬鏁撮棴鐜€?+
++## 椤圭洰鑳屾櫙
++
++- 澶ц瑷€妯″瀷姝ｅ湪鎺ㄥ姩鏂颁竴杞妧鏈彉闈╋紝杈圭紭绔澶фā鍨嬫帹鐞嗙殑闇€姹傛寔缁闀裤€?+- 鐜版湁涓绘祦鎺ㄧ悊妗嗘灦鍜屽鐞嗗櫒鏂规鏇村闈㈠悜浜戠锛岄拡瀵圭渚уぇ妯″瀷浼樺寲鐨勬灦鏋勪粛鐒跺瓨鍦ㄦ槑鏄剧┖鐧姐€?+- LPU 椤圭洰鏃㈡湇鍔′簬鐪熷疄搴旂敤闇€姹傦紝涔熺敤浜庡畬鏁存⒊鐞?NPU 璁捐鍏ㄦ祦绋嬨€?+
++## 鏍稿績鐩爣
++
++- 鏀寔 Vision Transformer銆丩arge Language Model銆乂ision Language Model 鎺ㄧ悊銆?+- 鏀寔 ResNet銆丮obileNet 绛?DNN 鎺ㄧ悊浠诲姟銆?+- 鏀寔 bf16 鐭╅樀涔樻硶銆佹縺娲诲嚱鏁般€丷educe銆丯orm銆丼oftmax銆丷oPE銆丮ask 绛夊叧閿兘鍔涖€?+- 闈㈠悜宸ョ▼钀藉湴瀹氫箟娓呮櫚鐨?Memory Model 鍜?Execution Model銆?+
++## 鏁翠綋鏋舵瀯
++
++<div class="row mt-3 justify-content-sm-center">
++    <div class="col-sm-10 mt-3 mt-md-0">
++        {% include figure.liquid loading="eager" path="assets/img/projects/lpu/lpu-overview.png" class="img-fluid rounded z-depth-1" zoomable=true %}
++    </div>
++</div>
++<div class="caption">
++    LPU 鏁翠綋妗嗗浘锛岃鐩?MXU銆丄RU銆両S銆丅IU銆乁B銆丩MB銆丷MB銆丳MB銆丳SB 绛夊叧閿ā鍧椼€?+</div>
++
++LPU 鐨勬灦鏋勫洿缁曠煩闃典箻娉曘€佹縺娲讳笌鏁版嵁鎼繍涓変釜鏍稿績鏂瑰悜缁勭粐锛?+
++- MXU 璐熻矗鐭╅樀涔樻硶璁＄畻銆?+- ARU 璐熻矗婵€娲汇€乺eshape銆乺educe 绛夊鐞嗐€?+- IS 璐熻矗鍙栨寚鍜屽悜鍚勬墽琛屽崟鍏冨垎鍙戞寚浠ゃ€?+- BIU銆丟DMA銆丩DMA 鍏卞悓瀹屾垚鍏ㄥ眬涓庡眬閮ㄦ暟鎹惉杩愩€?+- UB銆丩MB銆丷MB銆丳MB銆丳SB銆丄RB 鍏卞悓缁勬垚鍒嗗眰缂撳啿浣撶郴銆?+
++## Memory Model
++
++<div class="row mt-3 justify-content-sm-center">
++    <div class="col-sm-10 mt-3 mt-md-0">
++        {% include figure.liquid loading="eager" path="assets/img/projects/lpu/lpu-memory-model.png" class="img-fluid rounded z-depth-1" zoomable=true %}
++    </div>
++</div>
++<div class="caption">
++    LPU 鐨?Data Path 璁捐锛岀敤浜庡畾涔?GM銆乁B銆丩MB銆丷MB銆丳MB銆丳SB銆丄RB 涔嬮棿鐨勬暟鎹祦鍚戙€?+</div>
++
++鍦?Memory Model 灞傞潰锛岄」鐩噸鐐规槑纭簡锛?+
++- 鏁版嵁濡備綍鍦?GM銆乁B 鍜屽悇绫诲眬閮?Buffer 涔嬮棿娴佸姩銆?+- 鐭╅樀涔樻硶宸﹀彸鐭╅樀銆佸弬鏁颁笌閮ㄥ垎鍜岀殑甯冨眬褰㈠紡銆?+- 涓嶅悓绠楀瓙鍦烘櫙涓嬬殑鏁版嵁鎼繍涓?layout 杞崲鏂瑰紡銆?+
++## Execution Model
++
++<div class="row mt-3 justify-content-sm-center">
++    <div class="col-sm-10 mt-3 mt-md-0">
++        {% include figure.liquid loading="eager" path="assets/img/projects/lpu/lpu-execution-model.png" class="img-fluid rounded z-depth-1" zoomable=true %}
++    </div>
++</div>
++<div class="caption">
++    閫氳繃 set / wait 鏈哄埗缁勭粐 GDMA銆丩DMA銆丮XU銆丄RU 绛夋ā鍧楃殑骞惰鎵ц涓庢暟鎹緷璧栧叧绯汇€?+</div>
++
++Execution Model 鐨勯噸鐐规槸閫氳繃鎸囦护绾у悓姝ユ満鍒剁鐞嗘ā鍧楀苟琛岋細
++
++- GDMA銆丩DMA銆丮XU銆丄RU 绛変簩绾фā鍧楀苟琛岃繍琛屻€?+- Instruction Scheduler 閫氳繃 set 鍜?wait 鎺у埗鏁版嵁渚濊禆銆?+- 浠?matmul 涓轰緥锛屾暟鎹惉杩愩€佺煩闃佃繍绠椾笌婵€娲诲啓鍥炲彲浠ユ寜渚濊禆椤哄簭缁勭粐鎴愮ǔ瀹氭祦绋嬨€?+
++## 椤圭洰娴佺▼
++
++LPU 椤圭洰鎸夌収瀹屾暣澶勭悊鍣ㄧ爺鍙戦摼璺帹杩涳細
++
++1. 鏀堕泦闇€姹傦細鏄庣‘鏀寔鐨勭綉缁滅被鍨嬨€佷换鍔″満鏅€佺畻瀛愯兘鍔涗笌鎬ц兘鐩爣銆?+2. 瀹氫箟鏋舵瀯锛氬舰鎴愭暣浣撳鐞嗗櫒鏋舵瀯浠ュ強 Memory Model銆丒xecution Model銆?+3. 瀹氫箟 ISA锛氭牴鎹ā鍧楄兘鍔涘畾涔夋寚浠よ涔変笌鍙傛暟銆?+4. Function Model 楠岃瘉 ISA锛氱敤 C++ 鎴?Python 楠岃瘉鎸囦护闆嗘槸鍚︽弧瓒抽鏈熼渶姹傘€?+5. 璁捐寰灦鏋勶細绾靛悜鎷嗗垎妯″潡銆佹í鍚戞紨缁庡姛鑳介棴鐜€?+6. Cycle-Accurate Model 楠岃瘉寰灦鏋勶細鐢ㄦ椂閽熷懆鏈熺骇妯″瀷璇勪及姝ｇ‘鎬т笌鎬ц兘銆?+7. RTL 瀹炵幇锛氬熀浜庡凡楠岃瘉鏋舵瀯鎺ㄨ繘纭欢瀹炵幇涓庨獙璇併€?\ No newline at end of file
