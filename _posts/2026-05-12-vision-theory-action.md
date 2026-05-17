@@ -3,8 +3,8 @@ layout: post
 title: 愿景-理论-行动
 date: 2026-05-12 10:00:00 +0800
 description: 围绕读研、科研、项目和职业发展的问题清单，给出愿景、理论与行动的整体框架。
-tags: [research, mentorship, methodology]
-categories: research-notes
+tags: [科研成长, 研究生培养, 方法论]
+categories: 方法论
 featured: true
 related_posts: false
 ---

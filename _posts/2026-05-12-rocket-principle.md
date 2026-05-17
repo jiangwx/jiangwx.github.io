@@ -3,8 +3,8 @@ layout: post
 title: 造火箭原理
 date: 2026-05-12 09:20:00 +0800
 description: 先凑齐做成一件事所需的关键要素，再进入执行。
-tags: [research, methodology, execution]
-categories: research-notes
+tags: [执行方法, 项目推进, 关键要素]
+categories: 方法论
 thumbnail: assets/img/posts/rocket-principle-cover.jpg
 related_posts: false
 ---

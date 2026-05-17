@@ -3,8 +3,8 @@ layout: post
 title: 怎么发现问题？
 date: 2026-05-12 09:40:00 +0800
 description: 从“复现-优化”路径的局限，谈问题意识如何在自己的项目体系中生长出来。
-tags: [research, methodology, problem-finding]
-categories: research-notes
+tags: [问题意识, 科研选题, 项目方法]
+categories: 方法论
 thumbnail: assets/img/posts/how-to-find-problems-cover.jpg
 related_posts: false
 ---

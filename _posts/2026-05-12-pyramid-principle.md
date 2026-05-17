@@ -3,8 +3,8 @@ layout: post
 title: 金字塔原理
 date: 2026-05-12 09:30:00 +0800
 description: 用需求、层次和统摄关系组织复杂项目、复杂知识与复杂沟通。
-tags: [research, methodology, design]
-categories: research-notes
+tags: [结构化表达, 方案设计, 系统思维]
+categories: 方法论
 related_posts: false
 ---
 

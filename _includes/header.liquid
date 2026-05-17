@@ -83,6 +83,22 @@
                 </li>
               {% else %}
                 {% assign parent_link = p.permalink | remove: 'index.html' %}
+                {% assign nav_title_zh = p.title %}
+                {% assign nav_title_en = p.title %}
+                {% case p.permalink %}
+                  {% when '/cv/' %}
+                    {% assign nav_title_zh = '个人简历' %}
+                    {% assign nav_title_en = 'cv' %}
+                  {% when '/publications/' %}
+                    {% assign nav_title_zh = '论文' %}
+                    {% assign nav_title_en = 'publications' %}
+                  {% when '/projects/' %}
+                    {% assign nav_title_zh = '项目' %}
+                    {% assign nav_title_en = 'projects' %}
+                  {% when '/repositories/' %}
+                    {% assign nav_title_zh = '代码' %}
+                    {% assign nav_title_en = 'repositories' %}
+                {% endcase %}
                 <li class="nav-item {% if page.url contains parent_link %}active{% endif %}">
                   {%- if p.permalink contains '://' -%}
                     {%- assign url = p.permalink -%}
@@ -92,7 +108,8 @@
                     {%- assign url = p.url -%}
                   {%- endif %}
                   <a class="nav-link" href="{{ url | relative_url }}">
-                    {{- p.title }}
+                    <span data-language-panel="zh">{{- nav_title_zh -}}</span>
+                    <span data-language-panel="en" hidden>{{- nav_title_en -}}</span>
                     {% if page.url contains p.url %}
                       <span class="sr-only">(current)</span>
                     {% endif %}
@@ -101,6 +118,9 @@
               {% endif %}
             {% endif %}
           {% endfor %}
+          <li class="nav-item language-toggle-item">
+            <button class="nav-link language-toggle-button" type="button" data-language-toggle aria-label="切换到英文">English</button>
+          </li>
           {% if site.search_enabled %}
             <!-- Search -->
             <li class="nav-item">
