@@ -1,0 +1,116 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> 怎么发现问题？ | Weixiong Jiang </title> <meta name="author" content="Weixiong Jiang"> <meta name="description" content="从“复现-优化”路径的局限，谈问题意识如何在自己的项目体系中生长出来。"> <meta name="keywords" content="ai processor, computer architecture, lpu, npu, software-hardware co-design, tongji university"> <script>
+  (function () {
+    var storageKey = 'jiangwx-site-language';
+    var cookieKey = 'jiangwx-site-language';
+    var preferredLanguage = 'zh';
+
+    function readCookie(name) {
+      var cookiePrefix = name + '=';
+      var cookieParts = document.cookie ? document.cookie.split(';') : [];
+
+      for (var index = 0; index < cookieParts.length; index += 1) {
+        var cookie = cookieParts[index].trim();
+        if (cookie.indexOf(cookiePrefix) === 0) {
+          return cookie.substring(cookiePrefix.length);
+        }
+      }
+
+      return null;
+    }
+
+    try {
+      if (window.localStorage.getItem(storageKey) === 'en') {
+        preferredLanguage = 'en';
+      } else if (readCookie(cookieKey) === 'en') {
+        preferredLanguage = 'en';
+      }
+    } catch (error) {
+      preferredLanguage = readCookie(cookieKey) === 'en' ? 'en' : 'zh';
+    }
+
+    document.documentElement.setAttribute('lang', preferredLanguage === 'en' ? 'en' : 'zh-CN');
+    document.documentElement.setAttribute('data-language', preferredLanguage);
+  })();
+</script> <style>html[data-language='zh'] [data-language-panel='en'],html[data-language='en'] [data-language-panel='zh']{display:none!important}</style> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5"> <link defer rel="stylesheet" href="/assets/css/scholar-icons.css?62b2ac103a88034e6882a5be5f3e2772"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://jiangwx.github.io/blog/2025/how-to-find-problems/"> <script src="/assets/js/theme.min.js?06abe7c289b994182bfa5a91eebf29a7"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter " href="/"> Weixiong Jiang </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item active"> <a class="nav-link" href="/blog/"> <span data-language-panel="zh">博客</span> <span data-language-panel="en">blog</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/"> <span data-language-panel="zh">论文</span> <span data-language-panel="en">publications</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/"> <span data-language-panel="zh">项目</span> <span data-language-panel="en">projects</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/"> <span data-language-panel="zh">代码</span> <span data-language-panel="en">repositories</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/"> <span data-language-panel="zh">个人简历</span> <span data-language-panel="en">cv</span> </a> </li> <li class="nav-item language-toggle-item"> <button class="nav-link language-toggle-button" type="button" data-language-toggle aria-label="切换到英文">English</button> </li> <li class="nav-item"> <button id="search-toggle" title="Search" onclick="openSearchModal()"> <span class="nav-link">ctrl k <i class="ti ti-search"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="ti ti-sun-moon" id="light-toggle-system"></i> <i class="ti ti-moon-filled" id="light-toggle-dark"></i> <i class="ti ti-sun-filled" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">怎么发现问题？</h1> <p class="post-meta"> Created on November 08, 2025 </p> <p class="post-tags"> <a href="/blog/2025"> <i class="fa-solid fa-calendar fa-sm"></i> 2025 </a>   ·   <a href="/blog/tag/%E9%97%AE%E9%A2%98%E6%84%8F%E8%AF%86"> <i class="fa-solid fa-hashtag fa-sm"></i> 问题意识</a>   <a href="/blog/tag/%E7%A7%91%E7%A0%94%E9%80%89%E9%A2%98"> <i class="fa-solid fa-hashtag fa-sm"></i> 科研选题</a>   <a href="/blog/tag/%E9%A1%B9%E7%9B%AE%E6%96%B9%E6%B3%95"> <i class="fa-solid fa-hashtag fa-sm"></i> 项目方法</a>   ·   <a href="/blog/category/%E6%96%B9%E6%B3%95%E8%AE%BA"> <i class="fa-solid fa-tag fa-sm"></i> 方法论</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <p>这篇文章是 <a href="/blog/2025/vision-theory-action/">愿景-理论-行动</a> 中“行动”部分的展开。</p> <div class="row mt-3"> <div class="col-sm-12"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/posts/how-to-find-problems-cover-480.webp 480w,/assets/img/posts/how-to-find-problems-cover-800.webp 800w,/assets/img/posts/how-to-find-problems-cover-1400.webp 1400w," type="image/webp" sizes="95vw"></source> <img src="/assets/img/posts/how-to-find-problems-cover.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"> </picture> </figure> </div> </div> <p>很多人把“复现一篇论文，然后做优化”当成科研起点，但这往往不是一个好的方法。</p> <h2 id="为什么复现-优化不是一个好的科研方法">为什么复现-优化不是一个好的科研方法？</h2> <ol> <li>复现本身就可能复现不出来。论文通常强调创新点，不会把工程细节完整展开。一个成熟课题组往往有自己持续积累的大体系，而论文只是其中的一个小切面；只看这篇论文，很难真正还原作者背后的全部条件。</li> <li>这会把战略主动权交给别人。你是在沿着别人定义好的方向走，而不是从自己的体系、自己的需求和自己的约束中定义问题。</li> <li>方向会变得零散。最后写学位论文时，很容易只能靠“编故事”把几篇工作勉强串起来，而不是形成一个自上而下、逻辑严密的完整叙事。</li> <li>这条路径里还存在一个逻辑悖论：如果真要靠“先复现所有论文，了解所有问题，再选一篇优化”，成本极高；而实际常见做法是先找一篇看起来有改进空间的论文，结果复现完才发现，对方在自己论文所覆盖的那个范围里已经做得很完整，根本没有明显缺口。</li> </ol> <h2 id="那么问题从哪里来">那么问题从哪里来？</h2> <p>顶级期刊和会议论文在作者呈现出来的那个小范围里，通常已经做到了逻辑自洽。真正的问题，很多来自论文没有展开的部分，也就是更高层需求、周边系统约束和落地环境差异。</p> <p>如果你有自己的项目金字塔，知道每个小模块上面有什么需求、周边有什么约束、下面有什么实现代价，自然就能发现已有工作没考虑到的因素，也就更容易找到真正值得研究的问题。</p> <p>换句话说，问题不是从一篇论文的字缝里抠出来的，而是从自己的体系、自己的需求和自己的实践中长出来的。</p> <p>回到总入口：<a href="/blog/2025/vision-theory-action/">愿景-理论-行动</a>。</p> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Weixiong Jiang. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?a0db7e5d5c70cc3252b3138b0c91dcaf" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?85ddb88934d28b74e78031fd54cf8308"></script> <script src="/assets/js/no_defer.js?2781658a0a2b13ed609542042a859126"></script> <script defer src="/assets/js/common.js?e0514a05c5c95ac1a93a8dfd5249b92e"></script> <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var toggleButtons = document.querySelectorAll('[data-language-toggle]');
+
+    if (!toggleButtons.length) {
+      return;
+    }
+
+    var storageKey = 'jiangwx-site-language';
+    var cookieKey = 'jiangwx-site-language';
+
+    function readCookie(name) {
+      var cookiePrefix = name + '=';
+      var cookieParts = document.cookie ? document.cookie.split(';') : [];
+
+      for (var index = 0; index < cookieParts.length; index += 1) {
+        var cookie = cookieParts[index].trim();
+        if (cookie.indexOf(cookiePrefix) === 0) {
+          return cookie.substring(cookiePrefix.length);
+        }
+      }
+
+      return null;
+    }
+
+    function readLanguage() {
+      try {
+        if (window.localStorage.getItem(storageKey) === 'en') {
+          return 'en';
+        }
+      } catch (error) {
+        return readCookie(cookieKey) === 'en' ? 'en' : 'zh';
+      }
+
+      return readCookie(cookieKey) === 'en' ? 'en' : 'zh';
+    }
+
+    function writeLanguage(language) {
+      try {
+        window.localStorage.setItem(storageKey, language);
+      } catch (error) {
+      }
+
+      document.cookie = cookieKey + '=' + language + '; path=/; max-age=31536000; samesite=lax';
+    }
+
+    function applyLanguage(language) {
+      var nextLanguage = language === 'en' ? 'en' : 'zh';
+      document.documentElement.setAttribute('lang', nextLanguage === 'en' ? 'en' : 'zh-CN');
+      document.documentElement.setAttribute('data-language', nextLanguage);
+
+      document.querySelectorAll('[data-language-root]').forEach(function (root) {
+        root.setAttribute('data-language', nextLanguage);
+      });
+
+      toggleButtons.forEach(function (button) {
+        button.textContent = nextLanguage === 'zh' ? 'English' : '中文';
+        button.setAttribute('aria-label', nextLanguage === 'zh' ? '切换到英文' : '切换到中文');
+        button.classList.toggle('is-language-active', nextLanguage === 'en');
+
+        var navItem = button.closest('.nav-item');
+        if (navItem) {
+          navItem.classList.toggle('language-active', nextLanguage === 'en');
+        }
+      });
+    }
+
+    toggleButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        var currentLanguage = readLanguage();
+        var nextLanguage = currentLanguage === 'zh' ? 'en' : 'zh';
+        writeLanguage(nextLanguage);
+        applyLanguage(nextLanguage);
+      });
+    });
+
+    applyLanguage(readLanguage());
+  });
+</script> <script defer src="/assets/js/copy_code.js?c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?d9f17b6adc2311cbabd747f4538bb15f"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/js/mathjax-setup.js?a5bb4e6a542c546dd929b24b8b236dfd"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script defer src="/assets/js/progress-bar.js?2f30e0e6801ea8f5036fa66e1ab0a71a" type="text/javascript"></script> <script src="/assets/js/vanilla-back-to-top.min.js?f40d453793ff4f64e238e420181a1d17"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/js/search/ninja-keys.min.js?a3446f084dcaecc5f75aa1757d087dcf"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/js/search-setup.min.js?b4bbc733324ea37fcf84630e3c721723"></script> <script src="/assets/js/search-data.js"></script> <script src="/assets/js/shortcut-key.js?6f508d74becd347268a7f822bca7309d"></script> </body> </html>
