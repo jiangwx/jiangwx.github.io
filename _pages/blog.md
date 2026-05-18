@@ -2,6 +2,10 @@
 layout: default
 permalink: /blog/
 title: blog
+title_zh: 博客
+title_en: blog
+description_zh: 围绕 AI 处理器、科研方法与导师指导的随笔记录。
+description_en: Notes on AI processors, methodology, and mentorship.
 nav: true
 nav_order: 1
 pagination:
@@ -16,16 +20,20 @@ pagination:
     after: 3 # The number of links after the current page
 ---
 
-<div class="post">
+<div class="post" data-language-root data-language="zh">
 
-{% assign blog_name_size = site.blog_name | size %}
-{% assign blog_description_size = site.blog_description | size %}
+{% assign blog_name_zh = page.title_zh | default: site.blog_name %}
+{% assign blog_name_en = page.title_en | default: site.blog_name %}
+{% assign blog_description_zh = page.description_zh | default: site.blog_description %}
+{% assign blog_description_en = page.description_en | default: site.blog_description %}
+{% assign blog_name_size = blog_name_zh | size %}
+{% assign blog_description_size = blog_description_zh | size %}
 
 {% if blog_name_size > 0 or blog_description_size > 0 %}
 
   <div class="header-bar">
-    <h1>{{ site.blog_name }}</h1>
-    <h2>{{ site.blog_description }}</h2>
+    <h1>{% include localized_text.liquid zh=blog_name_zh en=blog_name_en fallback=site.blog_name %}</h1>
+    <h2>{% include localized_text.liquid zh=blog_description_zh en=blog_description_en fallback=site.blog_description %}</h2>
   </div>
   {% endif %}
 

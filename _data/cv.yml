@@ -1,97 +1,150 @@
-- title: General Information
+- title: 个人简介
+  type: profile
+  image: prof_pic_jiang.png
+  name: 姜伟雄
+  subtitle: 同济大学电子与信息工程学院助理教授
+  summary:
+    - 姜伟雄，同济大学电子与信息工程学院助理教授。2017 年获哈尔滨工业大学电磁场与无线技术专业学士学位，2022 年获中国科学院大学微电子学与固体电子学专业博士学位。
+    - 博士毕业后先后任职于华为海思图灵架构部与蔚来汽车自动驾驶芯片开发部，从事 GPU 与 NPU 的架构定义、关键模块论证、方案设计、RTL 开发及性能建模等工作，系统覆盖数字芯片前端核心岗位中的架构、建模与设计三大方向。
+    - 近五年来在 TCAD、TCAS-I、TCAS-II、TVLSI、DAC 等集成电路领域高水平期刊与会议上发表论文十余篇，其中以第一作者或通讯作者发表 6 篇，拥有国际授权专利 2 项。
+  highlights:
+    - AI 处理器及软件栈设计
+    - 端侧大语言模型处理器
+    - 架构探索与软硬件协同设计
+
+- title: 基本信息
   type: map
   contents:
-    - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
-    - name: Languages
-      value: English, German
+    - name: 姓名
+      value: 姜伟雄
+    - name: 职称
+      value: 助理教授
+    - name: 学科
+      value: 电子科学与技术
+    - name: 专业
+      value: 微电子
+    - name: 研究方向
+      value: AI 处理器及软件栈设计
+    - name: 电子邮件
+      value: jiangweixiong@tongji.edu.cn
+    - name: 联系电话
+      value: 17612153732
+    - name: 课题组主页
+      links:
+        - name: 访问
+          link: https://tju-opentpu.feishu.cn/wiki/UmSNwezqTi0y6gkG8L0cEwl4n1f
+    - name: 个人主页
+      links:
+        - name: 访问
+          link: https://jiangwx.github.io
+    - name: 小红书
+      value: 同济大学做AI芯片的姜伟雄
 
-- title: Education
+- title: 教育经历
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
-      description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
-      description:
-        - Description 1.
-        - Description 2.
+    - title: 中国科学院大学，微电子学与固体电子学，博士
+      year: 2022
+    - title: 哈尔滨工业大学，电磁场与无线技术，学士
+      year: 2017
 
-- title: Experience
+- title: 工作经历
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: 同济大学电子与信息工程学院，助理教授
+      year: 2025-至今
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
+        - 2025 年 7 月加入同济大学。
+        - 围绕 AI 处理器及软件栈设计开展教学与科研工作。
+    - title: 华为海思图灵架构部、蔚来汽车自动驾驶芯片开发部
+      year: 2022-2025
       description:
-        - Description 1.
-        - Description 2.
+        - 从事 GPU 与 NPU 的架构定义、关键模块论证、方案设计、RTL 开发及性能建模。
+        - 在产业环境中系统积累了数字芯片前端在架构、建模与设计三大方向的实践经验。
 
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
-      description:
-
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
-
-- title: Open Source Projects
-  type: time_table
-  contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
-
-- title: Honors and Awards
-  type: time_table
-  contents:
-    - year: 1921
-      items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
-      items:
-        - Max Planck Medal
-
-- title: Academic Interests
+- title: 研究方向
   type: nested_list
   contents:
-    - title: Topic 1.
+    - title: 端侧大语言模型处理器（LPU）全栈设计
       items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
-      items:
-        - Description 1.
-        - Description 2.
+        - 推理框架设计
+        - 算子设计与优化
+        - 架构设计与探索
+        - 微架构设计与优化
+        - 软硬件协同设计
 
-- title: Other Interests
+- title: 指导理念
+  type: nested_list
+  contents:
+    - title: 方法论先行，理论与实践螺旋上升
+      items:
+        - 进组后首先系统学习一套贯穿代码编写、论文写作、方案设计的通用方法论，再通过日常科研工作将其内化。
+    - title: 面向产业需求，培养全栈能力
+      items:
+        - 业务能力覆盖 LPU 全栈理解，包括推理框架、算子设计与优化、架构设计与探索、微架构设计与优化、软硬件协同设计。
+        - 通用低阶能力包括 Verilog、C++、UVM 芯片验证；通用高阶能力包括抽象、演绎、系统思维与结构化表达。
+    - title: 有组织科研，集中力量办大事
+      items:
+        - 课题组围绕 LPU 全栈开展研究，各位同学共同维护一个科研平台，并围绕关键模块深度优化。
+    - title: 渐进式培养，因材施教
+      items:
+        - 调试代码或做 UVM 验证 → 独立编写 C++/Verilog 代码 → 撰写小模块方案 → 撰写中模块方案 → 撰写大模块方案 → 主导另一核心模块。
+
+- title: 沟通机制
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - 每周一次全体组会对齐进度。
+    - 日常不定期技术组会，包括方案串讲、方案讨论、代码检视。
+    - 保持一对一答疑，确保问题能够及时解决。
+
+- title: 实习与就业
+  type: nested_list
+  contents:
+    - title: 就业辅导
+      items:
+        - 包括简历修改、模拟面试等。
+        - 表现优秀者可获大厂核心部门内推机会。
+    - title: 实习安排
+      items:
+        - 课题组与两家芯片大厂建有实习生合作关系，表现优秀者可直接内推。
+        - 未满足毕业要求前原则上不允许自行外出实习；满足毕业要求后充分放行。
+
+- title: 荣誉与奖项
+  type: time_table
+  contents:
+    - year: 2021
+      items:
+        - DAC-SDC'21 冠军（神经网络加速器领域 Top 竞赛，全球 116 支队伍，所有指标均第一）
+        - 中国电子学会集成电路奖学金一等奖
+    - year: 2020
+      items:
+        - DAC-SDC'20 亚军
+
+- title: 代表论文
+  type: time_table
+  contents:
+    - year: 2025
+      items:
+        - "Rui Li, Lin Li, Heng Yu, Masahiro Fujita, Weixiong Jiang*, Yajun Ha*: RefSCAT-2.0: Formal Verification of Large-Scale Optimized Multipliers via Quantum-Inspired Ant Colony Optimization-Based Reference Generation. IEEE TCAD, 2025."
+        - "Qi Deng, Hao Sun, Yuhao Shu, Jianzhong Xiao, Weixiong Jiang, Hui Wang, Yajun Ha: An Energy-Efficient and Real-Time FPGA-Based Point Cloud Registration Framework with Ultra-Fast and Configurable Multi-Mode Correspondence Search. ACM TRETS, 2025."
+        - "Shijie Meng, Qi Deng, Weixiong Jiang, Jinjie Huang, Hao Sun, Yajun Ha: An FPGA-Based Real-Time Loop Closure Detection Framework With Ultra-Fast Descriptor Generator. IEEE TCAS-I, 2025."
+        - "Shen Zhang, Bin Ning, Guangyao Yan, Xinzhe Liu, Weixiong Jiang, Yajun Ha: QuantTPM: Efficient Mixed-Precision Quantization Framework for Tractable Probabilistic Models. IEEE TCAD, 2025."
+        - "Junge Xu, Fan Zhang, Wenguang Jin, Kun Yang, Zeke Wang, Weixiong Jiang, Yajun Ha: A Deep Investigation on Stealthy DVFS Fault Injection Attacks at DNN Hardware Accelerators. IEEE TCAD, 2025."
+        - "Jingjin Li, Weixiong Jiang, Yuting He, Qingyu Yang, Anqi Gao, Yajun Ha, Ender Özcan, Ruibin Bai, Tianxiang Cui, Heng Yu: FiDRL: Flexible Invocation-Based Deep Reinforcement Learning for DVFS Scheduling in Embedded Systems. IEEE Transactions on Computers, 2025."
+    - year: 2023
+      items:
+        - "Weixiong Jiang, Heng Yu, Yajun Ha: A High-Throughput Full-Dataflow MobileNetv2 Accelerator on Edge FPGA. IEEE TCAD, 2023."
+        - "Weixiong Jiang, Heng Yu, Fupeng Chen, Yajun Ha: AOS: An Automated Overclocking System for High-Performance CNN Accelerator Through Timing Delay Measurement on FPGA. IEEE TCAD, 2023."
+    - year: 2022
+      items:
+        - "Weixiong Jiang, Heng Yu, Hongtu Zhang, Yuhao Shu, Rui Li, Jian Chen, Yajun Ha: FODM: A Framework for Accurate Online Delay Measurement Supporting All Timing Paths in FPGA. IEEE TVLSI, 2022."
+        - "Fupeng Chen, Heng Yu, Weixiong Jiang, Yajun Ha: Quality Optimization of Adaptive Applications via Deep Reinforcement Learning in Energy Harvesting Edge Devices. IEEE TCAD, 2022."
+        - "Jian Chen, Wenfeng Zhao, Yuqi Wang, Yuhao Shu, Weixiong Jiang, Yajun Ha: A Reliable 8T SRAM for High-Speed Searching and Logic-in-Memory Operations. IEEE TVLSI, 2022."
+    - year: 2021
+      items:
+        - "Weixiong Jiang, Heng Yu, Xinzhe Liu, Hao Sun, Rui Li, Yajun Ha: TAIT: One-Shot Full-Integer Lightweight DNN Quantization via Tunable Activation Imbalance Transfer. DAC, 2021."
+        - "Hongtu Zhang, Yuhao Shu, Weixiong Jiang, Zihan Yin, Wenfeng Zhao, Yajun Ha: A 55nm, 0.4V 5526-TOPS/W Compute-in-Memory Binarized CNN Accelerator for AIoT Applications. IEEE TCAS-II, 2021."
+    - year: 2020
+      items:
+        - "Weixiong Jiang, Rui Li, Heng Yu, Yajun Ha: An Accurate FPGA Online Delay Monitor Supporting All Timing Paths. ISCAS, 2020."
+        - "Hao Sun, Xinzhe Liu, Qi Deng, Weixiong Jiang, Shaobo Luo, Yajun Ha: Efficient FPGA Implementation of K-Nearest-Neighbor Search Algorithm for 3D LIDAR Localization and Mapping in Smart Vehicles. IEEE TCAS-II, 2020."

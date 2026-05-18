@@ -2,28 +2,26 @@
   <!-- Nav Bar -->
   <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
     <div class="container">
-      {% if page.permalink != '/' %}
-        <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
-          {% if site.title == 'blank' %}
-            {% if site.first_name %}
-              <span class="font-weight-bold">
-                {{- site.first_name -}}
-              </span>
-            {% endif %}
-            {% if site.middle_name %}
-              {{- site.middle_name -}}
-            {% endif %}
-            {% if site.last_name %}
-              {{- site.last_name -}}
-            {% endif %}
-          {% else %}
-            {{- site.title -}}
+      <a class="navbar-brand title font-weight-lighter {% if page.permalink == '/' %}active{% endif %}" href="{{ site.baseurl }}/">
+        {% if site.title == 'blank' %}
+          {% if site.first_name %}
+            <span class="font-weight-bold">
+              {{- site.first_name -}}
+            </span>
           {% endif %}
-        </a>
-      {% elsif site.enable_navbar_social %}
-        <!-- Social Icons -->
-        <div class="navbar-brand social">{% include social.liquid %}</div>
-      {% endif %}
+          {% if site.middle_name %}
+            {{- site.middle_name -}}
+          {% endif %}
+          {% if site.last_name %}
+            {{- site.last_name -}}
+          {% endif %}
+        {% else %}
+          {{- site.title -}}
+        {% endif %}
+        {% if page.permalink == '/' %}
+          <span class="sr-only">(current)</span>
+        {% endif %}
+      </a>
       <!-- Navbar Toggle -->
       <button
         class="navbar-toggler collapsed ml-auto"
@@ -42,20 +40,6 @@
 
       <div class="collapse navbar-collapse text-right" id="navbarNav">
         <ul class="navbar-nav ml-auto flex-nowrap">
-          {% for page in site.pages %}
-            {% if page.permalink == '/' %} {% assign about_title = page.title %} {% endif %}
-          {% endfor %}
-
-          <!-- About -->
-          <li class="nav-item {% if page.permalink == '/' %}active{% endif %}">
-            <a class="nav-link" href="{{ '/' | relative_url }}">
-              {{- about_title }}
-              {% if page.permalink == '/' %}
-                <span class="sr-only">(current)</span>
-              {% endif %}
-            </a>
-          </li>
-
           <!-- Other pages -->
           {% assign sorted_pages = site.pages | sort: 'nav_order' %}
           {% for p in sorted_pages %}
@@ -99,6 +83,27 @@
                 </li>
               {% else %}
                 {% assign parent_link = p.permalink | remove: 'index.html' %}
+                {% assign nav_title_zh = p.title %}
+                {% assign nav_title_en = p.title %}
+                {% if p.permalink contains '/blog/' %}
+                  {% assign nav_title_zh = '博客' %}
+                  {% assign nav_title_en = 'blog' %}
+                {% else %}
+                  {% case p.permalink %}
+                    {% when '/cv/' %}
+                      {% assign nav_title_zh = '个人简历' %}
+                      {% assign nav_title_en = 'cv' %}
+                    {% when '/publications/' %}
+                      {% assign nav_title_zh = '论文' %}
+                      {% assign nav_title_en = 'publications' %}
+                    {% when '/projects/' %}
+                      {% assign nav_title_zh = '项目' %}
+                      {% assign nav_title_en = 'projects' %}
+                    {% when '/repositories/' %}
+                      {% assign nav_title_zh = '代码' %}
+                      {% assign nav_title_en = 'repositories' %}
+                  {% endcase %}
+                {% endif %}
                 <li class="nav-item {% if page.url contains parent_link %}active{% endif %}">
                   {%- if p.permalink contains '://' -%}
                     {%- assign url = p.permalink -%}
@@ -108,7 +113,8 @@
                     {%- assign url = p.url -%}
                   {%- endif %}
                   <a class="nav-link" href="{{ url | relative_url }}">
-                    {{- p.title }}
+                    <span data-language-panel="zh">{{- nav_title_zh -}}</span>
+                    <span data-language-panel="en">{{- nav_title_en -}}</span>
                     {% if page.url contains p.url %}
                       <span class="sr-only">(current)</span>
                     {% endif %}
@@ -117,6 +123,9 @@
               {% endif %}
             {% endif %}
           {% endfor %}
+          <li class="nav-item language-toggle-item">
+            <button class="nav-link language-toggle-button" type="button" data-language-toggle aria-label="切换到英文">English</button>
+          </li>
           {% if site.search_enabled %}
             <!-- Search -->
             <li class="nav-item">

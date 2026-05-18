@@ -1,0 +1,38 @@
+{% if entry.image contains '/' %}
+  {% assign profile_image_path = entry.image %}
+{% else %}
+  {% assign profile_image_path = entry.image | prepend: 'assets/img/' %}
+{% endif %}
+
+<div class="cv-profile">
+  {% if entry.image %}
+    <div class="cv-profile-image">
+      {% include figure.liquid loading="eager" path=profile_image_path class="img-fluid rounded z-depth-1" alt=entry.name cache_bust=true %}
+    </div>
+  {% endif %}
+
+  <div class="cv-profile-body">
+    {% if entry.name %}
+      <h4 class="cv-profile-name">{{ entry.name }}</h4>
+    {% endif %}
+    {% if entry.subtitle %}
+      <p class="cv-profile-subtitle">{{ entry.subtitle }}</p>
+    {% endif %}
+
+    {% if entry.summary %}
+      <div class="cv-profile-summary">
+        {% for paragraph in entry.summary %}
+          <p>{{ paragraph }}</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if entry.highlights %}
+      <div class="cv-profile-highlights">
+        {% for item in entry.highlights %}
+          <span class="cv-profile-chip">{{ item }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>

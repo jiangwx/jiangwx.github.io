@@ -2,10 +2,11 @@
 layout: cv
 permalink: /cv/
 title: cv
+title_zh: 个人简历
+title_en: cv
 nav: true
 nav_order: 5
-cv_pdf: example_pdf.pdf # you can also use external links here
-description: This is a description of the page. You can modify it in '_pages/cv.md'. You can also change or remove the top pdf download button.
-toc:
-  sidebar: left
+description: 教育经历、工作经历、研究方向与代表成果。
+description_zh: 教育经历、工作经历、研究方向与代表成果。
+description_en: Education, professional experience, research directions, and selected publications.
 ---
